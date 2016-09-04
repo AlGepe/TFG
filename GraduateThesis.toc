@@ -1,0 +1,36 @@
+\contentsline {chapter}{Declaration of Authorship}{i}{dummy.1}
+\vspace {1em}
+\contentsline {chapter}{Abstract}{iii}{dummy.2}
+\vspace {1em}
+\contentsline {chapter}{Acknowledgements}{iv}{dummy.3}
+\vspace {1em}
+\contentsline {chapter}{List of Figures}{vii}{dummy.5}
+\contentsline {chapter}{List of Tables}{viii}{dummy.7}
+\contentsline {chapter}{Abbreviations}{ix}{dummy.9}
+\contentsline {chapter}{Physical Constants}{x}{dummy.12}
+\contentsline {chapter}{Symbols}{xi}{dummy.15}
+\vspace {2em}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.18}
+\contentsline {section}{\numberline {1.1}Solid State Detectors in High Energy Physics}{1}{section.19}
+\contentsline {subsection}{\numberline {1.1.1}Principles of particle detection}{1}{subsection.20}
+\contentsline {subsection}{\numberline {1.1.2}Specific charateristics of a \textit {Si}-based particle detector}{1}{subsection.21}
+\contentsline {section}{\numberline {1.2}Radiation damage in \textit {Si} detectors}{2}{section.22}
+\contentsline {chapter}{\numberline {2}Simulator development and results}{3}{chapter.23}
+\contentsline {section}{\numberline {2.1}The simulator, a radiation upgrade to TRACS}{3}{section.24}
+\contentsline {subsubsection}{\numberline {2.1.0.1}Starting Point (TRACS)}{3}{subsubsection.25}
+\contentsline {subsubsection}{\numberline {2.1.0.2}Theoretical background and approximaitons}{3}{subsubsection.26}
+\contentsline {subsubsection}{\numberline {2.1.0.3}Goodness of the results}{4}{subsubsection.27}
+\contentsline {chapter}{\numberline {3}Experimental measurements}{5}{chapter.28}
+\contentsline {section}{\numberline {3.1}Experimental method}{5}{section.29}
+\contentsline {section}{\numberline {3.2}Fitting method}{5}{section.30}
+\contentsline {section}{\numberline {3.3}Results and comparison with TRACS-rad}{5}{section.31}
+\contentsline {chapter}{\numberline {4}Conclusions}{6}{chapter.32}
+\contentsline {section}{\numberline {4.1}Results and achievements}{6}{section.33}
+\contentsline {section}{\numberline {4.2}Let's put the project in perspective}{6}{section.34}
+\contentsline {chapter}{\numberline {5}Future Proyection and extensibility}{7}{chapter.35}
+\contentsline {section}{\numberline {5.1}Future Improvements}{7}{section.36}
+\contentsline {section}{\numberline {5.2}Future proyection}{7}{section.37}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}An Appendix}{8}{appendix.38}
+\vspace {2em}
+\contentsline {chapter}{Bibliography}{10}{dummy.39}
