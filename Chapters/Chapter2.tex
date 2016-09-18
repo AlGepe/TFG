@@ -21,21 +21,38 @@ To understand what are those effects and why they happen we should start by look
 
 In such a equilibrium state 2 zones can be clearly identified near the $p-n$ junctions, on top of the unaffected $p$ and $n$ regions of the silicon far away from the junction. These two zones are electrically charged having an excess of negative charge on the $p$ side and a excess of positive charge on the $n$ side of the junction. In this region, called the space charge region, an electrical field and its correspondent potential can be found. This region is called the depletion region because it has been depleted of free charge carriers.
 
-\section{Effective space charge distribution ($N_{eff}$)} 
+\subsection{Effective space charge distribution ($N_{eff}$)} 
 %Talk equations and introduce the concept of Neff and its shape in a non-irradiated silicon detector
 
-The electrical properties of the $p-n$ junction can be derived from the corresponding Poisson equation. \[ENTER POISSON EQUATION\]
+The electrical properties of the $p-n$ junction can be derived from the corresponding Poisson equation. 
+\begin{equation}
+\nabla^2 \phi = \frac{\rho(x)}{\epsilon} 
+\label{eq:poisson}
+\end{equation}
 
-[PARAGRAPH EXPLAINING VARIABLES]
+Where $\phi$ is the electric potential, $\epsilon$ the absolute permittivity of silicon and $\rho(x)$ is the space charge distribution as a function of position.
+
+It is easy to see from equation (\ref{eq:poisson}) the important role of the space charge distribution, also called $N_{eff}$. Such quantity will also play a very important in the parametrisation and implementation of radiation damage in the TRACS simulator, as we will explain in detail in sections [SECTION]. For now, we will focus on the non-irradiated case in which the $N_{eff}$ is constant throughout the depleted zone \[ Kramberger (2.5)\] for a junction located at $x=0$ and $-x_p$ and $x_n$ being the extremes of the depleted zone.
+
+It is important to note that since the both the $n$-doped and $p$-doped silicon were electrically neutral in the beginning and no charge has been created or destroyed in the process of creating the junction, the material as a whole must also be neutral which means the total amount of charge has to be equal on both side, this leads us to a very important conclusion when building a detector out of silicon: \[N_A x_p = N_D x_n\] 
+
+This relationship is very important when building a detector since one tries to maximise the sensing volume of the detector (which in a silicon detector is the depleted zone) but the $p-n$ junction is a feature to avoid in the middle of the detector. The usual procedure when building a silicon detector is to have one of the doped silicon sides be of a much higher doping than the other (e.g.: $N_A >> N_D$  so that the depletion zone is almost entirely on one side of the junction ($x_n >> x_p$). In this manner one gets rid of the mess involved in having the $p-n$ junction in the middle of the detector.
+
+With this configuration one can make useful approximations to calculate the width of the depleted zone ($w$) such as $w \approx x_p$  (using the example above) so that $w$ can be calculated using 
+\begin{equation}
+w = \sqrt{\frac{2\epsilon V_0}{\epsilon_0 N_D}}
+\label{eq:width}
+\end{equation}
+
+where $V_0$ is the so called built-in potential difference mentioned before that arises from the diffusion of the impurities from one side to the other of the junction.
+
+When Poisson's equation is solved for $\rho = const$ the resulting electric $\nabla \phi = \vec{E}$ field is linear with the distance to the $p-n$ junction. In a typical detector configuration (where $w \approx x_{p/n}$) this mean there is an electric field across the whole active volume of the detector (depleted area) in which any carrier created inside of the depleted zone will drift out of said zone. This configuration is exactly what we described at the begging of the section as the basic "detector configuration". 
+
+The presence of the $p-n$ junction is, therefore, the fundamental way to make a particle detector out of silicon and its properties will determine the effectiveness of said detector. However, this basic configuration is usually not enough to have a silicon detector that can be use in real-world applications. To get a "usable" silicon detector one should build upon the features we have seen to enhance its properties as we will see in the next section.
 
 
 
-It is easy to see from equation [POISSON] the important role of the space charge distribution, also called $N_{eff}$. Such quantity will also play a very important in the parametrisation and implementation of radiation damage in the TRACS simulator, as we will explain in detail in sections [SECTION]. For now, we will focus on the non-irradiated case in which the $N_{eff}$ is constant throughout the depleted zone. 
-When Poisson's equation is solved for $\rho = const$ the resulting electric field is linear with the distance to the $p-n$ junction.
-
-
-
-\section{Carrier Transport}
+\section{Detector configuration and signal creation}
 
 
 \section{Recombination} 
