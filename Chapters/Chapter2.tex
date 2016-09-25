@@ -53,7 +53,11 @@ The presence of the $p-n$ junction is, therefore, the fundamental way to make a 
 \section{Detector configuration and signal creation}
 
 The first problem that one faces when building a silicon detector from a bare $p-n$ junction is getting as much active volume as possible i.e.: depleting the whole piece of silicon. For this purpose a bias voltage ($V_{bias}$) is introduced. This $V_{bias}$ is applied externally following the same polarity as the built-in potential $V_0$ and increases the depleting effect of the $p-n$ junction therefore increasing the active volume of silicon. 
-To calculate the effects of the \vias it is enough to substitute $V_$ by the sum of both potentials ($V_0$ +\vias) in equation (\ref{eq:width}). The resulting equation can be simplified if we assume $V_0 << $\vias which holds true in most of the real-world cases. This means equation (\ref{eq:width}) can be re-written as: \[w = \sqrt{\frac{2\epsilon V_0}{\epsilon_0 N_D}}\]
+To calculate the effects of the \vias it is enough to substitute $V_$ by the sum of both potentials ($V_0$ +\vias) in equation (\ref{eq:width}). The resulting equation can be simplified if we assume $V_0 << $\vias which holds true in most of the real-world cases. This means equation (\ref{eq:width}) can be re-written as: 
+\begin{equation}
+w = \sqrt{\frac{2\epsilon V_0}{\epsilon_0 N_D}}
+\label{eq:widthVias}
+\end{equation}
 
 What this equation shows is that the depleted silicon volume can be as big as desired, provided that enough voltage is applied, making it possible for the whole silicon volume to be depleted and used as a particle detector. 
 
