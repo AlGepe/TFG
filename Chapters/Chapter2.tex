@@ -81,6 +81,11 @@ For a system where more than one particle is moving and thus inducing current in
 	I = q \cdot \sum_{n=1}^{N} v_n 	\label{eq:ramoTot} 
 \end{equation} 
 
-In semiconductors like silicon the drift velocity of electrons and holes can be parametrized as the product of the electric field (\vec E) and the mobility (\mu) of said particle.\[v = \mu \cdot \vec E\] Where the movility is and experimentally determined parameter that parametrizes how a charge carrier moves in a given energy band when subject to an electric field. Typically electron mobilities ($\mu_e$) are taken to be refered to the conduction band unless otherwise specified. Converselly, hole mobilities ($\mu_h$) are taken to be refered to the valence band by default. Putting all this together we arrive at
+In semiconductors like silicon the drift velocity of electrons and holes can be parametrised as the product of the electric field ($ \vec E $) and the mobility (\mu) of said particle.\[v = \mu \cdot \vec E\] Where the mobility is and experimentally determined parameter that parametrises how a charge carrier moves in a given energy band when subject to an electric field. Typically electron mobilities ($ \mu_e $) are taken to be referred to the conduction band unless otherwise specified. Conversely, hole mobilities ($ \mu_h $) are taken to be referred to the valence band by default. Putting all this together we arrive at
 \begin{equation}
-	I = q \cdot \sum_{n=1}^{N} \mu_i \cdot \vec{E} 	\label{eq:ramoTot} 
+	I = q \cdot \sum_{n=1}^{N} \mu_i \cdot \vec{E} 
+\label{eq:ramoMob}
+\end{equation}
+where the sub-index $i$ may refer to electrons or holes depending on the particle that contributes to the total current.
+
+This theorem and its results are one of the most fundamental principles needed to understand silicon detectors. In fact, its applicability goes beyond silicon unirradiated silicon detectors and holds true for irradiated silicon detectors. It is important to note, though, that for irradiated silicon detectors there are some factors to take into account that makes the application of Schockley-Ramos theorem less straight forward than in the unirradiated case. In the following section we will go in more detail about what are the effects of irradiation in signal formation and collection as well as explain how to properly take into account those effects.
