@@ -71,5 +71,16 @@ The depleted part of the silicon detector, i.e.: the active part is the volume o
 
 When a particle is able to knock off one electron out of their original position, it will move to an energy level in the conduction band, leaving a hole in the valence band. This yields a situation in which both the electron in the conduction band and the hole in the valence band can move in the electric field present inside the depleted bulk of the detector. This drift of the charge carriers inside of the depleted region will induce a signal in the electrodes of the circuit as explained by Ramo-Shockley Theorem.
 
-The Ramo-Shockely Theorem states that 
+The Ramo-Shockely Theorem states that the current induced by a moving charge on a wire/circuit is proportional to the carge of the particle and the velocity at which it moves. 
+\begin{equation}
+	i = v \cdot q
+	\label{eq:ramo} 
+\end{equation} 
+For a system where more than one particle is moving and thus inducing current in the circuit, the total current can be written as the sum of each indivual contribution from the N particles moving in the system. If all the charge carriers have the same charge as it is in the case of electrons and holes drifting inside the silicon volume, then equation (\ref{eq:ramo}) can be re-written as:
+\begin{equation}
+	I = q \cdot \sum_{n=1}^{N} v_n 	\label{eq:ramoTot} 
+\end{equation} 
 
+In semiconductors like silicon the drift velocity of electrons and holes can be parametrized as the product of the electric field (\vec E) and the mobility (\mu) of said particle.\[v = \mu \cdot \vec E\] Where the movility is and experimentally determined parameter that parametrizes how a charge carrier moves in a given energy band when subject to an electric field. Typically electron mobilities ($\mu_e$) are taken to be refered to the conduction band unless otherwise specified. Converselly, hole mobilities ($\mu_h$) are taken to be refered to the valence band by default. Putting all this together we arrive at
+\begin{equation}
+	I = q \cdot \sum_{n=1}^{N} \mu_i \cdot \vec{E} 	\label{eq:ramoTot} 
