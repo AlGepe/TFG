@@ -34,4 +34,32 @@ The second mayor parametrisation that should also be considered in the frame of 
 
 \section{Signal degradation}
 
-After taking a look at the effects that radiation has on silicon it is important to understand how radiations changes the read-out signal, since that is what will be measured in the laboratory. As we have already mentioned the main effects of radiation damage from a practical point of view are the creation of deep levels inside the band gap that act as trapping centers for the charge carriers moving inside the silicon bulk.
+After taking a look at the effects that radiation has on silicon it is important to understand how radiations changes the read-out signal, since that is what will be measured in the laboratory. As we have already mentioned the main effect of radiation damage from a practical point of view is the creation of deep levels inside the band gap that act as trapping centers for the charge carriers moving inside the silicon bulk. For the sake of simplicity and ease of explanation when explanation when talking about the implementation of radiation damage in the software TRACS, we will treat \neff deformation as a different effect. This is very practical as it helps understand dynamical and static effects separately. 
+
+The effect that deep levels have in the signal is the trapping of the charge carriers creating a loss in charge collection efficiency. Because collection times in silicon detectors are of the order of tens of nanoseconds whilst the trapping times are typically of the order of miliseconds, the trapped carriers will never be released in time to be collected and are effectively lost. The process of trapping is a statistical one with the probability of one charge carrier to be trapped after a drifting inside the silicon for a time $t$ being  \[FORMULA FOR TRAPPING PROBS\] where $\tau$ (trapping time) is an experimentally determined parameter that shows how likely it is for a carrier to get trapped, in a very similar law as that governing the natural decay of radioactive materials. For a big enough number of carriers drifting in silicon, the effective result in the signal generated is an exponential decrease over time in the collected signal with respect to the unirradiated case. 
+
+On the other hand the \neff modification due to radiation has no effect on the total collected charge, but on the shape of the collected signal as well as in the collection time. As discussed before the intensity recorded is proportional to the electric field in which the carriers are drifting. Since the electric field is obtained by integrating the \neff, this field is now modified by radiation and yields different waveforms when measured in the lab. Since velocity is different from the non-irradiated case, collection times are modified becoming larger after irradiation in most cases due to lower electric field modulus in the middle of the bulk of silicon. 
+
+Both effects combined yield the typical $double peak$ shape obtained when subjecting the irradiated detectors to the TCT analysis that are normally performed in the lab. This shape combines the double peak feature of the electric field with the exponential dampening of the electrical charge collected. This kind of measurements and analysis are very useful in studying the charateristics of irradiated silicon detectors including determination of trapping times, \neff profile and charge collection efficiency, as it will be shown in the following chapter.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
