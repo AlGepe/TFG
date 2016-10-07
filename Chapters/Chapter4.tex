@@ -26,9 +26,12 @@ This method is the easiest to perform and yields good enough results for most of
 \section{e-TCT} % (fold)
 \label{sec:fitting_method}
 
-details of edge TCT
+To avoid surface problems and have a much better control on carrier placement inside the detector, a new way of illuminating the silicon was needed. To avoid surface problems and big reflections in the metallizations, the laser is moved to the side of the detector being shot on the edge of the detector, parallel to the implants and ohmic contacts, hence the '$edge$' naming convention. To increase the penetration depth of the light shot at the detector an infrared laser with wavelength around XXXnm is typically used. This configuration allows the charge to be created deeply inside the detector in a thick-line volume corresponding to the laser beam.
 
-% section fitting_method (end)
+In terms of the created carrier pairs, the drift in oppposite directions after being created but due to sign difference in electric charge, both current contributions add up. The final signal collected in the circuit will have too components (electrons and holes) that will give away information about the electric field in both directions. Some times it might be difficult to distinguish each component and mobility effects since there are two different particles drifting inside the field. Typical edge-TCT scans are performed by smapling the whole detector heigth in steps of a couple microns and repeating this process for different \vias values.
+
+Using this techniques one can obtain the same results as using the red-TCT techniques with the additiona benefit of being able to sample different parts of the detector. One could even measure the width of the depleted area for a given voltage by performing an edge-TCT scan and carefully measuring where the expected waveform shape dissapears giving rise to a flat signal. One of the few problems of the edge-TCT technique is the loss of information in the direction of the laser beam and the wide waist of said laser beam that limits greately the resolution of this measurements.
+% section fitting_method (en
 
 \section{TPA} % (fold)
 \label{sec:results_and_comparison_with_tracs_rad}
