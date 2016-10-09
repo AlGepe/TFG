@@ -5,6 +5,10 @@ We have already stated the importance of simulating software in research in gene
 
 For the purposes of this project we will shift out focus to the fast and light-weight simulators for that is the kind of simulation software that was updgraded during this project. That is not to say that slow accurate simulators are not useful for the project, on the contrary both software types can complement each other in many scenarios, but are not of crucial importance for the project itself.
 
+In the silicon detector simulation field, specially amongst members of the RD-50 collaboration from CERN, there were several already available simulators capable of reproducing TCT measurements from the laboratory for different detector configurations (diode, microstrips\ldots) as well as some other features specific to each individual software. The software of choice for this project was the Transient Current Simulator (TRACS) developed by Pablo De Castro in 2014 in the PH-DT-DD-SSD group at CERN. 
+
+The reasoning behind the decision of using TRACS is pretty straight forwards and was based on two principal arguments. First one is that TRACS is an open-software platform built around efficient open-software libraries that have been already tested and validated in multiple scenarios. And second and probably more important is that the software TRACS was already developed and used in the PH-DT-DD-SSD group where this upgrade project was developed which means it was also desgined with future upgrades in mind. 
+
 In this chapter we will present the structural design of the software as it was before the project started including the different parts in which it is divided. We will also present the changes and upgrades performed with particular emphasis on the implementation of radiation damage simulation including the rationale behind the decisions and simplifications made in the process. Lastly we shall comment briefly on where the software stands now, after the upgrades, and what the forseenable future might hold for TRACS from a wider perspective.
 
 \section{Software design} % (fold)
