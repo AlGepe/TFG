@@ -1,36 +1,29 @@
 \chapter{TRACS: the meats and potatoes of this whole thing}
 \label{chap:Comp}
 
-We have already stated the importance of simulating software in research in general and in radiation damage studies in particular, so it should come as no surprise that this next chapter is entirely dedicated to the software developed during this project. When talking about simulation software one can usually classify them in two big categories: fast light-weight approximative simulators and slow, powerfull, accurate simulators. Both of them have their strenghts and weaknesses with the latter group being often used for theory orientated checks and the fast simulators commonly used for measurement comparison in laboratory situations.
+We have already stated the importance of simulating software in research in general and in radiation damage studies in particular, so it should come as no surprise that this next chapter is entirely dedicated to the software developed during this project. When talking about simulation software one can usually classify them in two big categories: fast light-weight approximate simulators and slow, powerful, accurate simulators. Both of them have their strenghts and weaknesses with the latter group being often used for theory orientated checks and the fast simulators commonly used for measurement comparison in laboratory situations.
 
 For the purposes of this project we will shift out focus to the fast and light-weight simulators for that is the kind of simulation software that was updgraded during this project. That is not to say that slow accurate simulators are not useful for the project, on the contrary both software types can complement each other in many scenarios, but are not of crucial importance for the project itself.
 
-In the silicon detector simulation field, specially amongst members of the RD-50 collaboration from CERN, there were several already available simulators capable of reproducing TCT measurements from the laboratory for different detector configurations (diode, microstrips\ldots) as well as some other features specific to each individual software. The software of choice for this project was the Transient Current Simulator (TRACS) developed by Pablo De Castro in 2014 in the PH-DT-DD-SSD group at CERN. 
+In the silicon detector simulation field, specially amongst members of the RD-50 collaboration from CERN, there were several already available simulators capable of reproducing TCT measurements from the laboratory for different detector configurations (diode, micro-strips\ldots) as well as some other features specific to each individual software. The software of choice for this project was the Transient Current Simulator (TRACS) developed by Pablo De Castro in 2014 in the PH-DT-DD-SSD group at CERN. 
 
-The reasoning behind the decision of using TRACS is pretty straight forwards and was based on two principal arguments. First one is that TRACS is an open-software platform built around efficient open-software libraries that have been already tested and validated in multiple scenarios. And second and probably more important is that the software TRACS was already developed and used in the PH-DT-DD-SSD group where this upgrade project was developed which means it was also desgined with future upgrades in mind. 
+The reasoning behind the decision of using TRACS is pretty straight forwards and was based on two principal arguments. First one is that TRACS is an open-software platform built around efficient open-software libraries that have been already tested and validated in multiple scenarios. And second and probably more important is that the software TRACS was already developed and used in the PH-DT-DD-SSD group where this upgrade project was developed which means it was also designed with future upgrades in mind. 
 
 In this chapter we will present the structural design of the software as it was before the project started including the different parts in which it is divided. We will also present the changes and upgrades performed with particular emphasis on the implementation of radiation damage simulation including the rationale behind the decisions and simplifications made in the process. Lastly we shall comment briefly on where the software stands now, after the upgrades, and what the forseenable future might hold for TRACS from a wider perspective.
 
 \section{Software design} % (fold)
 \label{sec:results_and_achievements}
 
-TRACS is built and written in C++11 ISO standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualization. The whole software takes advantage of Object Oriented Programming and it is, thus, organized in different classes following a logic similar to the real world process. TRACS also has two different modes available for the user: a comand line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
+TRACS is built and written in C++11 standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real world process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
 
 During a typical simulation on TRACS, the program would take detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the step before and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format.
 
-This $modus operandi$ was present in the original version of TRACS an still remains at the core of every simulationperformed using the software. Alterations to the code and behaviour of the program will be adressed in the following section together with the justification for all the decisions that were made. Now we will briefly summarize the different parts that compose TRACS from its original state to the latest upgrade.
+This $modus operandi$ was present in the original version of TRACS an still remains at the core of every simulation performed using the software. Alterations to the code and behaviour of the program will be addressed in the following section together with the justification for all the decisions that were made. Now we will briefly summarise the different parts that compose TRACS from its original state to the latest upgrade.
 
-\subsection{detector module and PDE solveR}
+\subsection{detector module and PDE solver}
 \subsection{Drifting}
 \subsection{joining all together (CLI)}
 \subsection{GUI and its advantages}
-
-
-here we shall talk about the initial goals and how well we accomplished them. Having experimental and simulated measurements is great (+1pt for the project) but we need to analyse how good the simulator is (+-1pt depending on the outcome).
-
-The project deserves between A+ and B+ => This should be the take away of the conclusion
-
-% section results_and_achievements (end)
 
 \section{The development phase, changes and rationale} % (fold)
 \label{sec:let_s_put_the_project_in_perspective}
