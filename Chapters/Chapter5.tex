@@ -14,7 +14,14 @@ In this chapter we will present the structural design of the software as it was 
 \section{Software design} % (fold)
 \label{sec:results_and_achievements}
 
-TRACS structure before and after the project (1subsection per component)
+TRACS is built and written in C++11 ISO standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualization. The whole software takes advantage of Object Oriented Programming and it is, thus, organized in different classes following a logic similar to the real world process.
+
+During a typical simulation on TRACS, the program would take detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the step before and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format.
+
+This $modus operandi$ was present in the original version of TRACS an still remains at the core of every simulationperformed using the software. Alterations to the code and behaviour of the program will be adressed in the following section together with the justification for all the decisions that were made. Now we will briefly summarize the different parts that compose TRACS from its original state to the latest upgrade.
+
+\subsection{detector module and PDE solveR}
+
 
 here we shall talk about the initial goals and how well we accomplished them. Having experimental and simulated measurements is great (+1pt for the project) but we need to analyse how good the simulator is (+-1pt depending on the outcome).
 
