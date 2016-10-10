@@ -22,7 +22,10 @@ This $modus operandi$ was present in the original version of TRACS an still rema
 
 \subsection{detector module and PDE solver}
 
-One of the core modules of TRACS is the one composed by the detector class and PDE solver. 
+One of the core modules of TRACS is the one composed by the detector class and PDE solver. This is composed fundementally of the $SMSDetector$ class and the $SMSDSubDomains$. In these classes the properties of the detector are stored and converted into boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through $Poisson.h$ and $Gradient.h$ files.
+
+This part of the software is flexible enough to accomodate for any detector geometry with few changes in the code, thanks to the use of Fenics libraries. For diodes and microstrip, however, the software is readyto simulated them out-of-the-box as diodes are considered a special case of microstrips with just one strip covering the whole surface of the silicon.
+
 \subsection{Drifting}
 \subsection{joining all together (CLI)}
 \subsection{GUI and its advantages}
