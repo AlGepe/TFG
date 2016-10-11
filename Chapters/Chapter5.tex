@@ -24,11 +24,19 @@ This \textit{modus operandi} was present in the original version of TRACS an sti
 
 One of the core modules of TRACS is the one composed by the detector class and PDE solver. This is composed fundamentally of the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are stored and converted into boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
 
+If several simulations are to be performed using the same detector and initial conditions, the fields and potentials need not be calculated again for they are saved in memory by TRACS. 
+
 This part of the software is flexible enough to accommodate for any detector geometry with few changes in the code, thanks to the use of Fenics libraries. For diodes and micro-strip, however, the software is readout simulated them out-of-the-box as diodes are considered a special case of micro-strips with just one strip covering the whole surface of the silicon.
 
 It is in this part of the software that the \neff is implemented through the $V_{dep}$ for the non-irradiated case. Several modifications were done in TRACS to extend its capabilities of simulation to a radiation-modified \neff parametrisation decided by the user. We will explain all the modifications to this part in detail in the next section as we go through the modifications performed to TRACS.
 
+
 \subsection{Drifting}
+
+After the electric field and potential and the weighting field and potential have been calculated, the software then proceeds to move the charge carriers inside the detector according to the correspondent laws of movement. 
+
+The charge carriers are input via a plain text file containig one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier adn added together for every time step.
+
 \subsection{joining all together (CLI)}
 \subsection{GUI and its advantages}
 
