@@ -1,4 +1,5 @@
 \chapter{TRACS: the meats and potatoes of this whole thing}
+% I'm missing the general approximations made in TRACS such as no electron-electron interaction
 \label{chap:Comp}
 
 We have already stated the importance of simulating software in research in general and in radiation damage studies in particular, so it should come as no surprise that this next chapter is entirely dedicated to the software developed during this project. When talking about simulation software one can usually classify them in two big categories: fast light-weight approximate simulators and slow, powerful, accurate simulators. Both of them have their strenghts and weaknesses with the latter group being often used for theory orientated checks and the fast simulators commonly used for measurement comparison in laboratory situations.
@@ -33,22 +34,21 @@ It is in this part of the software that the \neff is implemented through the $V_
 
 \subsection{Drifting}
 
-After the electric field and potential and the weighting field and potential have been calculated, the software then proceeds to move the charge carriers inside the detector according to the correspondent laws of movement. 
+After the electric field and potential and the weighting field and potential have been calculated, the software then proceeds to move the charge carriers inside the detector according to the correspondent laws of movement. This is taken care by the classes: \textit{CarrierCollection}, \textit{Carrier},\textit{CarrierMobility}, \textit{CarrierTransport}
 
-The charge carriers are input via a plain text file containig one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier adn added together for every time step.
+The charge carriers are input via a plain text file containig one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier and added together for every time step.
+
+The off-set generation time introduced as an input is a quantity whose actual value is of no significance and it is only introduced to reproduce better the waveforms obtaied in the lab, specially the first spike that appears as the carriers are created and the signal in the circuit starts to be collected. This off-set also helps obtaining better results when one wishes to simulate the electronic shaping of the signal or even more sophisticated stuff like more accurately timed charge carriers creation.
+
+% maybe use equations here?
+An important feature of the TRACS carriers simulation is the grouping and splitting of carriers by assigntment of a weighted charge. This means that groups of charge carriers  of the same type, lying initially very close together can be simulated as being just one charge carrier with a total charge equal to the sum of all the individual charges of the carriers. This reduces greately the number of individual charge carriers that need to be simulated hence improving simulation times. This grouping can be done with almost no penalty in precision of the results due to the neglect of carrier-carrier interactions.
+
 
 \subsection{joining all together (CLI)}
 \subsection{GUI and its advantages}
-
 \section{The development phase, changes and rationale} % (fold)
 \label{sec:let_s_put_the_project_in_perspective}
-
 \subsection{What we changed}
-
 \subsection{How we implemented the stuff we implemented}
-
-It's time to sell the product! It has been presented in RD50 (Hamburg) and validated by the collaboration (at least PdC part). The tool is unique in many ways. From its never-seen-before ability to manipulate and fit the space charge distribution inside a detector to the more common but still in development capacity to simulate and predict transients on radiated silicon detectors.
-
-It's a tool for the future, working in the limits of knowledge and (maybe) pushing them forwards. (toma sobrada!)
 
 % section let_s_put_the_project_in_perspective (end)
