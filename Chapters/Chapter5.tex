@@ -71,6 +71,14 @@ All the changes made during this project were oriented to either the main goal: 
 The radiation damage effects that were implemented and represent the core of the project will be explained in detail with detailed explanations on the specific decisions that were made and how the implementation was done. This will be separated in two parts dividing the physics part and rationale from the coding and software design part of the whole implementation.
 
 \subsection{What we changed}
+
+The different effects of radiation damage in the signal obtained from a silicon detector have been discussed before and we concluded that a part from the increase in $V_{dep}$ and leakage current, the main effects were the loss in charge collection efficiency and the modification in the shape of the waveform due to the perturbated \neff. It is important to remember that eventhough we treat these effects as different, they are all the result of the Vacancy-Interstitial deffects in the lattice due to particle-Si core collisions.
+
+For TRACS simulation capabilities, the increase in leakage current needs not be taken into account. This leaves only increase in $V_{dep}$, \neff modification and trapping of carrier to be implemented inside the code. The increase in $V_{dep}$ can be included in the \neff modification since $V_{dep}$ is dependant on the \neff inside the detector so that by solving the PDEs for the modified \neff one should automatically obtain the correct $V_{dep}$ value.
+
+
+
+
 \subsection{How we implemented the stuff we implemented}
 
 % section let_s_put_the_project_in_perspective (end)
