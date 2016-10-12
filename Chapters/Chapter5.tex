@@ -76,7 +76,7 @@ The different effects of radiation damage in the signal obtained from a silicon 
 
 For TRACS simulation capabilities, the increase in leakage current needs not be taken into account. This leaves only increase in $V_{dep}$, \neff modification and trapping of carrier to be implemented inside the code. The increase in $V_{dep}$ can be included in the \neff modification since $V_{dep}$ is dependant on the \neff inside the detector so that by solving the PDEs for the modified \neff one should automatically obtain the correct $V_{dep}$ value.
 
-
+The \neff modification is, as we have already discussed, a rather complicated effect to implement in a simulator software like TRACS that cannot reproduce the irradiation process. It is then required to have a model for how the \neff get distorded from the original constant value as a function of radiation fluence. There is not such a model that works satisfactory for wide range of fluences, which leaves room for custom solutions. 
 
 
 \subsection{How we implemented the stuff we implemented}
