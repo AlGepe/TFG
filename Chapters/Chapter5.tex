@@ -62,7 +62,14 @@ First tab allows the user to configure all the detector parameters and solve the
 The other two tabs that conform the GUI are used for carrier drifting and waveform simulation. Options range from 1 carrier simulations, to simulating a line of carriers to full laser illumination simulations (provided the correct file). All these tools are equiped with carrier visualisation tools as well as a waveform plotting area for quickly checking the shapes and general features. On top of these visualisation-oriented features, TRACS-GUI also provides a way to save the waveforms in plain text format.
 
 \section{The development phase, changes and rationale} % (fold)
-\label{sec:let_s_put_the_project_in_perspective}
+\label{sec:werk}
+
+All the modules and features we have explained in the previous section were part of the original TRACS software. From that point the software was modified and upgraded to include radiation damage effects  with user defined parameters as well as improving the usage and flexibility of TRACS both as a standalone and as a library-like module for bigger projects.
+
+All the changes made during this project were oriented to either the main goal: Implementing radiation damage into the simulations; or future extensibility of TRACS capabilities. These future oriented features will be commented briefly since they are not a fundamental part of the project and most of the information regarding them will lay under future projection or future upgrades proposal.
+
+The radiation damage effects that were implemented and represent the core of the project will be explained in detail with detailed explanations on the specific decisions that were made and how the implementation was done. 
+
 \subsection{What we changed}
 \subsection{How we implemented the stuff we implemented}
 
