@@ -54,6 +54,13 @@ To bring all the components together TRACS has both a CLI and a GUI available to
 TRACS is designed around two main use case scenarios: quick checks and long simulations. For the latter case CLI was designed, providing the user with and easy, low resource execution version, that can be easily automated. The CLI executable for TRACS was born as the proof-of-concept and grew into a fully functional standalone version, eventhough that has changed throught the course of the project.
 
 \subsection{GUI and its advantages}
+
+On top of the already mentioned CLI, TRACS also provides a GUI to allow for easy checks and a more user-friendly approach to simulations. The GUI is built with ease of use in mind instead of high efficiency performance for long simulations. It is thus divided in different tabs for each of the different components of TRACS, and every tab contains several graphs and visualization options to make everything easy to understand and use.
+
+First tab allows the user to configure all the detector parameters and solve the PDEs for the specific detector parameters. After resolution of the PDEs, all the potentials and fields are plotted inside the potentials tab and the fields tab respectively. The graphs offer color-coded 2D maps as well as 1D cut of the fields; interactive 3D plots are also available through VTK tools.
+
+The other two tabs that conform the GUI are used for carrier drifting and waveform simulation. Options range from 1 carrier simulations, to simulating a line of carriers to full laser illumination simulations (provided the correct file). All these tools are equiped with carrier visualisation tools as well as a waveform plotting area for quickly checking the shapes and general features. On top of these visualisation-oriented features, TRACS-GUI also provides a way to save the waveforms in plain text format.
+
 \section{The development phase, changes and rationale} % (fold)
 \label{sec:let_s_put_the_project_in_perspective}
 \subsection{What we changed}
