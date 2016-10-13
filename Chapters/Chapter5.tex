@@ -78,6 +78,9 @@ For TRACS simulation capabilities, the increase in leakage current needs not be 
 
 The \neff modification is, as we have already discussed, a rather complicated effect to implement in a simulator software like TRACS that cannot reproduce the irradiation process. It is then required to have a model for how the \neff get distorded from the original constant value as a function of radiation fluence. There is not such a model that works satisfactory for wide range of fluences, which leaves room for custom solutions. 
 
+It is important to know that one of the ultimate goals of the bigger TRACS project is to be used as part of a fitting tool that would take waveforms of irradiated silicon detectors as input and return the \neff configuration that yields the closest results. This way TRACS would greately diverge from current silicon detector simulators in such a way that it can get information about the detector retrospectively on top of performing approximate simulation-prediction of what the results should be.
+
+With this goal in mind the reasoning behind the parametrisation should be easier to comprehend. A decision was made to include both \neff parametrisations mentioned as the most widespread ones.
 
 \subsection{How we implemented the stuff we implemented}
 
