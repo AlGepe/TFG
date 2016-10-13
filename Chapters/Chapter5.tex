@@ -2,7 +2,7 @@
 % I'm missing the general approximations made in TRACS such as no electron-electron interaction
 \label{chap:Comp}
 
-We have already stated the importance of simulating software in research in general and in radiation damage studies in particular, so it should come as no surprise that this next chapter is entirely dedicated to the software developed during this project. When talking about simulation software one can usually classify them in two big categories: fast light-weight approximate simulators and slow, powerful, accurate simulators. Both of them have their strenghts and weaknesses with the latter group being often used for theory orientated checks and the fast simulators commonly used for measurement comparison in laboratory situations.
+We have already stated the importance of simulating software in research in general and in radiation damage studies in particular, so it should come as no surprise that this next chapter is entirely dedicated to the software developed during this project. When talking about simulation software one can usually classify them in two big categories: fast light-weight approximate simulators and slow, powerful, accurate simulators. Both of them have their strengths and weaknesses with the latter group being often used for theory orientated checks and the fast simulators commonly used for measurement comparison in laboratory situations.
 
 For the purposes of this project we will shift out focus to the fast and light-weight simulators for that is the kind of simulation software that was upgraded during this project. That is not to say that slow accurate simulators are not useful for the project, on the contrary both software types can complement each other in many scenarios, but are not of crucial importance for the project itself.
 
@@ -84,8 +84,25 @@ This simplifies greatly the implementation process as it is not needed to use an
 
 With this goal in mind the reasoning behind the parametrisation should be easier to comprehend. A decision was made to include both \neff parametrisations mentioned as the most widespread ones. The first parametrisation, the linear approximation, is easy to implement and has only 2 free parameters that would need adjusting or knowing beforehand depending on the scenario. Since this parametrisation has given good results in modelling \neff modification in irradiated silicon detectors throughout different research studies, it will used as the most basic and easy to use and implement approximation for radiation damage.
 
+Since TRACS might be used in part of a fitting process it is key to have flexibility as to how the \neff will be defined and for improving the adaptability of TRACS to any possible \neff distribution, it was decided to include as well a more exotic \neff parametrisation in the form of a mixture between the previously mentioned parametrisations. The extra modelling of the \neff that has been included into TRACS consists on 3 different areas where the carrier density is linear with depth. Restrictions are imposed in the allowed values for each zone so that conitnuity is ensured. Derivability, though not strictly necessary for current use of TRACS, has been ensured by means of hyperbolic tangents connecting the end of one area with the begining of the adyacent one.
+trapping -> exponential decay
+
+UX -> config file, API like, cleaned code, documentation and 
 
 
 \subsection{How we implemented the stuff we implemented}
+
+due to fenics flexibility it was very easy to implement any \neff
+
+user input parameters
+
+visualization tool
+
+for trapping we multiply the I(t) by and exp(f(t))  yielding similar results to experiments
+
+GUI all the changes
+
+
+
 
 % section let_s_put_the_project_in_perspective (end)
