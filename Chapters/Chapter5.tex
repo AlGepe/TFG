@@ -89,6 +89,9 @@ Since TRACS might be used in part of a fitting process it is key to have flexibi
 Those are not the only restrictions imposed on the \neff. In the linear approximation, continuity and derivability are guaranteed, continuity in the triple linear approximation is forced but derivability is not guaranteed; and for the triple constant approximation continuity and derivability are not ensured. Derivability, though not strictly necessary for current use of TRACS, has been ensured in both triple linear and triple constant approximations by means of hyperbolic tangents connecting the end of one area with the beginning of the adjacent one. Continuity in the triple constant approximation arises from these hyperbolic tangent bridges that connect smoothly one value of the \neff in one area to the vale in the next. 
 
 
+With \neff parametrisation already solved and explained we must now turn our attention to the trapping effects as the second feature to implement for the simulation of irradiated silicon detectors. Trapping of charge carriers is a statistical process and as such cannot it shall require a random variable as control for each carrier with the corresponding performance penalty, specially for low trapping probabilities and high number of carriers.
+
+To avoid such computational overhead, we opted for the approximated implementation of the effect through the use of an exponential wrapping over the whole waveform. This approximation requires enough siumulated time and enough carriers to be simulated to be relatively accurate. Both conditions are met by all but the most extreme of the scenarios simulating real world measurements. 
 
 trapping -> exponential decay
 
