@@ -80,7 +80,11 @@ The \neff modification is, as we have already discussed, a rather complicated ef
 
 It is important to know that one of the ultimate goals of the bigger TRACS project is to be used as part of a fitting tool that would take waveforms of irradiated silicon detectors as input and return the \neff configuration that yields the closest results. This way TRACS would greately diverge from current silicon detector simulators in such a way that it can get information about the detector retrospectively on top of performing approximate simulation-prediction of what the results should be.
 
-With this goal in mind the reasoning behind the parametrisation should be easier to comprehend. A decision was made to include both \neff parametrisations mentioned as the most widespread ones.
+This simplifies greatly the implementation process as it is not needed to use any approximate model that would parametrise trapping and \neff modification effects as a function of the radiation fluence the silicon detector has be subject to. This models often require multiple experimental coefficients that may vary under different conditions and one might end up needing to use several different models to fully parametrise just one physical value. The approach taken in this project sits on the opposing end, rendering TRACS viable to be used as another analysis tool as well as a guessing/comparing tool.
+
+With this goal in mind the reasoning behind the parametrisation should be easier to comprehend. A decision was made to include both \neff parametrisations mentioned as the most widespread ones. The first parametrisation, the linear approximation, is easy to implement and has only 2 free parameters that would need adjusting or knowning beforehand depending on the scenario. Since this parametrisation has given good results in modeling \neff modification in irradiated silicon detectors theoughout different research studies, it will used as the most basic and easy to use and implement approximation for radiation damage.
+
+
 
 \subsection{How we implemented the stuff we implemented}
 
