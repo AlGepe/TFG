@@ -107,7 +107,11 @@ The \textit{TRACSInterface} class contains a simple set of methods that allows t
 
 Implementation of the improvements in TRACS can be seen as a fairly straight-forward process due to the usage of Object Oriented programming and external flexible libraries. In the case of modified \neff implementation Fenics libraries prodive users with the option to define a custom space charge distribution to solve Poisson's equation. 
 
-By creating a new class \textit{Source} the \neff could be parametrised in the chosen manners, including the option for the user to select between different parametrisations during execution time. Inside the class setter methods were also implemented so that \neff approximation and parametrisation can be modified \textit{on-the-fly}. 
+By creating a new class \textit{Source} the \neff could be parametrised in the chosen manners, including the option for the user to select between different parametrisations during execution time. Inside the class setter methods were also implemented so that \neff approximation and parametrisation can be modified \textit{on-the-fly}. By having a dedicated class for \neff parametrisation TRACS can also be easily modified to include any other parametrisation should  it be needed at some point. 
+
+In the implementation of trapping effects was performed in a very simple manner. Its implementation clearly reflects the computational advantage of the chosen approach compared to the physically more accurate. For the implementation of the exponential wrapping of the waveform it suffices to multiply the raw values in each time step by the exponential factor at the given time. This simulates the effect of the statistical trapping and yields an exponential decrease in the output current that mimics the experimental one.
+
+
 
 due to fenics flexibility it was very easy to implement any \neff
 
