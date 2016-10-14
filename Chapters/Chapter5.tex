@@ -105,6 +105,10 @@ The \textit{TRACSInterface} class contains a simple set of methods that allows t
 
 \subsection{How we implemented the stuff we implemented}
 
+Implementation of the improvements in TRACS can be seen as a fairly straight-forward process due to the usage of Object Oriented programming and external flexible libraries. In the case of modified \neff implementation Fenics libraries prodive users with the option to define a custom space charge distribution to solve Poisson's equation. 
+
+By creating a new class \textit{Source} the \neff could be parametrised in the chosen manners, including the option for the user to select between different parametrisations during execution time. Inside the class setter methods were also implemented so that \neff approximation and parametrisation can be modified \textit{on-the-fly}. 
+
 due to fenics flexibility it was very easy to implement any \neff
 
 user input parameters
