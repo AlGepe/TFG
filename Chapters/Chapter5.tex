@@ -111,19 +111,16 @@ By creating a new class \textit{Source} the \neff could be parametrised in the c
 
 In the implementation of trapping effects was performed in a very simple manner. Its implementation clearly reflects the computational advantage of the chosen approach compared to the physically more accurate. For the implementation of the exponential wrapping of the waveform it suffices to multiply the raw values in each time step by the exponential factor at the given time. This simulates the effect of the statistical trapping and yields an exponential decrease in the output current that mimics the experimental one.
 
+For both \neff parametrisation and trapping effects, it is needed for the user to introduce the relevant parameters. For the custom \neff effect the input data are the coordinates of the points needed to define the selected \neff parametrisation. The number of parameters needed in each case varies from 2 for the linear case to 5 for the triple constant \neff to 6 for the case of triple linear approximation. In the case of trapping effects, only one parameter is needed: \tau.
 
+The side features implemented are spread around the whole code of TRACS, specially the cleaning and commenting side of it. For the configuration file a new file \textit{Config.TRACS} was added with its very own syntax that allows the parser to identify input values from comments and explanations. The \textit{TRACSInterface} development was done, as previously stated, on a new separate class in addition to the already present CLI and GUI so that nothing had to be change for standalone use of TRACS.
 
-due to fenics flexibility it was very easy to implement any \neff
+As well as the code and CLI, the GUI version of TRACS has also been upgraded to account and make use of the changes for simulating irradiated detectors as well as all the side features implemented for a better user experience. This changes include the extra fields to input the new parameters such as \neff parametrisation type and coordinates, trapping time and a toggle to switch between simulation of irradiated detectors (taken \neff parameters and trapping time into account a disposing off $V_{dep}$) or non-irradiated detectors ($V_{dep}$ will define the constant vale of \neff and trapping time will not be considered). 
 
-user input parameters
+It is an unintended feature of TRACS that you can de-couple \neff modification and trapping effects allowing the user to explore both effects separately by simply toggling on radiation simulation and inputing a constant \neff or a very big trapping time (i.e.: effectively no trapping). Other improvements to TRACS-GUI include the implementation of simple on-the-fly RC shapping capabilites for output waveforms as well as resizeable plot throgout all tabs. The last of the visual improvements to TRACS is the inclussion of the Custom N$_{eff}$ Visualization Tool (CNVT) which allows the user to preview the \neff configuration before starting the simulation.
 
-visualization tool
+In summary, TRACS has been improved and upgraded to include radiation effects into the simulations with user defined \neff and trapping parameters. On top of those improvements TRACS has also seen an overhault in terms of documentation, user experience and flexibility being able now to be run as an aditional library or module on a bigger piece of software.
 
-for trapping we multiply the I(t) by and exp(f(t))  yielding similar results to experiments
-
-GUI all the changes
-
-
-
+As scientific procedure dictates, these improvement are of no use until they are contrasted and tested agains real-world data. The original version of TRACS showed excellent agreement with experimental data from laboratory measurements so it is expected that the new version of TRACS be a useful and accurate tool. This accuracy will be tested in the next section, that will prove TRACS usefulness as a research tool for anyone intereseted in radiation damage in silicon detectors.
 
 % section let_s_put_the_project_in_perspective (end)
