@@ -11,6 +11,26 @@ In the following sections and extended description of the experimental setup and
 \section{Experimental procedure} % (fold)
 \label{sec:future_improvements}
 
+For a silicon detector to be used as so, it is need to have a circuit that can apply the necessary \vias and read the signal as well as a mechanism to generate free carriers inside the silicon bulk (e.g.: particles or laser). In this section we will explain in detail how these things are set-up together for performing controlled, reliable measurements in the laboratory.
+
+Starting with the components of the circuit that are required, one should use a power supply for applying the \vias, a Resistor-Capacitor system for signal filtering and an amplifier for improving Signal to Noise ratio. On top of those components one should, obviously, have a measuring device, often realised in the form of an Oscilloscope.
+
+The RC system and the Amplifier should be placed right after the detector (following the direction of flow of the current) for them to be useful. The Oscilloscope or measuring device should come at the end, as shown in the scketch below this lines REFERENCE HERE TO IMAGE! Eventhough these placements decisions are fairly trivial it is important to understand what the role of each component in the circuit is.
+
+By looking at the figure REFERENCE AGAIN!!!! it is easier to understand what each of the components is doing and why it is so important to have these as a basic setup. The purpose of having an RC device is to separate the DC component (\vias) from the AC component (signal from the detector) of the total signal that would be otherwise collected at the readout point. By using a Resistor-Capacitor system the \vias and the signal gets separated allowing for the use of an amplifier that would be effective, since \vias is typically over several hundred volts and the amplifiers used do not accept more than 5V. This separation not only allows for the small signal to be amplified but also allows for better S/N ratios 
+
+The reason why the RC systema and the amplifier appear boxed together in the sketch is that they usually are part of the same device called 'Bias Tee' due to its shape and the fact that is used for applying bias voltages on silicon detectors. From the amplifier the signal will be read by an oscilloscope connected to it. The oscilloscope is usually set to average a couple hundred signals for smoother and cleaner waveforms as well as to eliminate random fluctuations.The signal is then stored and analysed with the corresponding software, depending on the parameters of interest.
+
+% here goes faraday cage and obscure chamber explanation
+
+% Here goes laser
+
+% Here goes laser movement and control
+
+
+\subsection{Setup} 
+\subsection{Measuring procedure} 
+
 circuit details and measurement procedure
 
 % section future_improvements (end)
