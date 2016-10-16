@@ -1,14 +1,12 @@
 \chapter{Simulation vs Reality: are TRACS results real?}
 
-It has already been discussed the theoretical basis upon which TRACS has been developed to include radiation damage effects into its simulations. It has also been discussed how those implementations were made. Now all that is left for TRACS to be considered a useful tool in reseach. Just like any tool to be used in research, TRACS needs to be consitent with experimental results or, as we are talking about a simulation tool, be able to reproduce reliably experimental results.
+It has already been discussed the theoretical basis upon which TRACS has been developed to include radiation damage effects into its simulations. It has also been discussed how those implementations were made. Now all that is left for TRACS to be considered a useful tool in research. Just like any tool to be used in research, TRACS needs to be consistent with experimental results or, as we are talking about a simulation tool, be able to reproduce reliably experimental results.
 
 The first thing that needed to be decided was the type of measurement to reproduce in TRACS. This was a decision made based on the current focus of the silicon group at IFCA \iffalse No se el nombre oficial \fi on TPA-TCT measurements. TPA-TCT is the newest TCT techniques of all the ones discussed previously and will also prove the ability of TRACS to adapt to any kind of technique without much work needed. A simulation like this, if proven to be realistic, could also be used as a device to explore TPA limitations and advantajes in a fully controlled environment.
 
 For any simulation TRACS needs to be given the initial charge carriers' positions. For these carrier distributions to be physically meaningful the should replicate real world situations such a particle hits or laser illumination (e.g.: for TCT simulations). To recreate laser illumination for the TPA-TCT simulations mentioned just before, python scripts developed by Pablo de Catro and modified by the author were used. Such scripts replicate carrier generation by laser illumination inside silicon volumen and can mimic red-TCT, edge-TCT and TPA-TCT depending on the parameters used. In particulat, the TPA-TCT illumination simulation script was used to recreate the carriers generated in laboratory measurements using femtosecond infrarred laser to perform TPA-TCT measurements.
 
 In the following sections and extended description of the experimental setup and  measurement procedure will be presented, followed by a discussion of the results and the comparison between TRACS simulations and laboratory measurements.
-
-
 \section{Experimental procedure} % (fold)
 \label{sec:future_improvements}
 
