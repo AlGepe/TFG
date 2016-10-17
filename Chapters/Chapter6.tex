@@ -13,6 +13,8 @@ In the following sections and extended description of the experimental setup and
 
 For a silicon detector to be used as so, it is need to have a circuit that can apply the necessary \vias and read the signal as well as a mechanism to generate free carriers inside the silicon bulk (e.g.: particles or laser). In this section we will explain in detail how these things are set-up together for performing controlled, reliable measurements in the laboratory.
 
+\subsection{Setup} 
+
 Starting with the components of the circuit that are required, one should use a power supply for applying the \vias, a Resistor-Capacitor system for signal filtering and an amplifier for improving Signal to Noise ratio. On top of those components one should, obviously, have a measuring device, often realised in the form of an Oscilloscope.
 
 The RC system and the Amplifier should be placed right after the detector (following the direction of flow of the current) for them to be useful. The Oscilloscope or measuring device should come at the end, as shown in the sketch below this lines REFERENCE HERE TO IMAGE! Even though these placements decisions are fairly trivial it is important to understand what the role of each component in the circuit is.
@@ -31,12 +33,8 @@ To creat signal inside the detector illumination is required and it is provided 
 
 When using a low energy laser for TPA absorption, focusing is very important as it will allow for very small regions of space to have enough light intensity for two photon processes to take place. With such a focused laser beam one can control with very fine detaul where to created the charge carriers to sample different points in the detector. Such a fine control requires very precise servo controllers with precission of the order or microns. Such controllers are standard in edge-TCT mesurement but only for 2 directions since that kind of laser illuminations yields no information on the third.
 
+The first idea is commonly to mount the laser system on the servo controllers so that the experiment replicates the mental image in which the detector is fixed in space and the laser scans its volumen. In reality such a setup is very inpractical for the laser system is often too complex and big to be mounted into the servo controllers. In fact for TPA-TCT experiment like the one conducted here, the laser is too big to fit inside the Faraday cage and sits outside of it; light is then brought, guided and focused inside by a system of mirrors and lenses, most of which live inside the Faraday cage. For the servo controllers to be correctly utilised, the silicon detector is placed on them and then moved around eliminating the need for powerful and strong servo controllers.
 
-
-% Here goes laser movement and control
-
-
-\subsection{Setup} 
 \subsection{Measuring procedure} 
 
 circuit details and measurement procedure
