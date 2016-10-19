@@ -16,23 +16,23 @@ These donor (or acceptor) levels introduced by impurities are very close to the 
 
 In a real semiconductor, there are impurities of both types, despite the fact that one kind of them can be majority. The difference between the number of donor impurities ($N_D$) and acceptor impurities ($N_A$) dictates whether the material is $p$-doped ($N_A > N_D $) or n-doped ($N_D > N_A$). This difference is called $N_{eff}$, or the effective doping.
 
-When $n$-type Silicon is put in contact with $p$"-type a pn-junction is formed. Due to the concentration difference, electrons from the n-type will diffuse to the p-type material, while holes from the $p$-side will diffuse into the n-material. While doing so, an electric field appears from the n-type to the p-type material due to the fixed spatial charges (ionized atoms). This electric field will then stop diffusion of free carriers. The ionised atoms in the silicon lattice cannot effectively move from their initial positions. The region depleted of lightly bound (free) charge carriers is called the depletion zone. Note that this region exists even in the absence of an external potential. The charge separation between the 2 oppositely doped volumes leads to an electrostic potential (Poisson equation). This voltage difference is called built-in voltage. If now a potential difference is applied such that the n-side is made positiveand it is a function of the bias voltage applied to the detector.
+When $n$-type Silicon is put in contact with $p$"-type a pn-junction is formed. Due to the concentration difference, electrons from the n-type will diffuse to the p-type material, while holes from the $p$-side will diffuse into the n-material. While doing so, an electric field appears from the n-type to the p-type material due to the fixed spatial charges (ionized atoms). This electric field will then stop diffusion of free carriers. The ionised atoms in the silicon lattice cannot effectively move from their initial positions. The region depleted of lightly bound (free) charge carriers is called the depletion zone. Note that this region exists even in the absence of an external potential. The charge separation between the 2 oppositely doped volumes leads to an electrostic potential (Poisson equation). This voltage difference is called built-in voltage. If now a potential difference is applied such that the n-side is made positive with respect to the p-side, the depleted region will increase. This is called reverse biasing, in opposition to forward biasing where the 
 
 
 \subsection{Effective space charge distribution ($N_{eff}$)} 
 %Talk equations and introduce the concept of Neff and its shape in a non-irradiated silicon detector
 
-The electrical properties of the $p-n$ junction can be derived from the corresponding Poisson equation. 
+The electrical properties of the $p-n$ junction can be derived from Poisson equation. 
 \begin{equation}
 \nabla^2 \phi = \frac{\rho(x)}{\epsilon} 
 \label{eq:poisson}
 \end{equation}
 
-Where $\phi$ is the electric potential, $\epsilon$ the absolute permittivity of silicon and $\rho(x)$ is the space charge distribution as a function of position.
+Where $\phi$ is the electrostatic potential, $\epsilon$ the absolute permittivity of silicon and $\rho(x)$ is the space charge distribution as a function of position.
 
-It is easy to see from equation (\ref{eq:poisson}) the important role of the space charge distribution, also called $N_{eff}$. Such quantity will also play a very important in the parametrisation and implementation of radiation damage in the TRACS simulator, as we will explain in detail in sections [SECTION]. For now, we will focus on the non-irradiated case in which the $N_{eff}$ is constant throughout the depleted zone \[ Kramberger (2.5)\] for a junction located at $x=0$ and $-x_p$ and $x_n$ being the extremes of the depleted zone.
+The value of $N_{eff}$ determines the potential and electric field in a non-irradiated detector. This value is constant (and equal to the doping of the bulk). For now, we will focus on the non-irradiated case. We consider a junction located at $x=0$, being $-x_p$ and $x_n$ the extremes of the depleted zone.
 
-It is important to note that since the both the $n$-doped and $p$-doped silicon were electrically neutral in the beginning and no charge has been created or destroyed in the process of creating the junction, the material as a whole must also be neutral which means the total amount of charge has to be equal on both side, this leads us to a very important conclusion when building a detector out of silicon: \[N_A x_p = N_D x_n\] 
+It is important to note that since the both the $n$-doped and $p$-doped silicon were electrically neutral at the beginning and no charge has been created or destroyed in the process of creating the junction, the material as a whole will remain neutral which means the total amount of charge has to be equal on both sides. This leads to a the mass action law, described as \[N_A x_p = N_D x_n\] 
 
 This relationship is very important when building a detector since one tries to maximise the sensing volume of the detector (which in a silicon detector is the depleted zone) but the $p-n$ junction is a feature to avoid in the middle of the detector. The usual procedure when building a silicon detector is to have one of the doped silicon sides be of a much higher doping than the other (e.g.: $N_A >> N_D$  so that the depletion zone is almost entirely on one side of the junction ($x_n >> x_p$). In this manner one gets rid of the mess involved in having the $p-n$ junction in the middle of the detector.
 
