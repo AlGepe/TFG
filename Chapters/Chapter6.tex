@@ -61,7 +61,13 @@ The data has been normalised to the maximum value of the histograms. In this way
 
 A few sample transients will be selected for direct comparison between measurements and simulations. Simulation and measurements will be plotted together with different plots for each of the selected voltages. This will allow to compare the specific features of the transients and establish the agreement between simulations and measurements.
 
-\subsection{Voltage Scan}
+\subsection{Comparison between TRACS and already existing simulations}
+
+The first milestone for TRACS is to reproduce already published and approved results that other simulators have achieved. For such task the data from [ref{REFERENCIA A DECIDIR}] will be used. In this thesis, the \neff is parametrised as a linear function of depth, a feature TRACS also bares. Even though the data is not available in any other form than the plots published in the aforementioned thesis, it is possible to extract the defining parameters of the \neff and perform a simulation that can be compared to the published one. 
+
+Comparison of the \vec{E} field and transients from both the thesis and TRACS can only be performed \textit{side-by-side} due to the lack of raw data available for a more comprehensive analysis. Transients from T.Poehlsen's thesis also include measured data that supports the validity of the simulation presented there.
+
+\subsection{Comparison between simulations and real world measurements}
 
 %Deberia haber comentado en la parte de TRACS que TRACS no simula difusion?
 
@@ -87,8 +93,6 @@ TRACS simulations are presented now in a similar manner as the measurements. Com
 No transients below $80V \approx V_{dep}$ were simulated because TRACS does not simulate diffusion inside the detector. Together with the fact that illumination is done in the non depleted area for $V < 80V$ this means that any simulation done in TRACS for voltages under $V_{dep}$ will have no physical meaning.
 
 These two plots allow to see how TRACS reproduces the trends of the transients with different voltages but direct comparison of the transients can be arduos. In the following plots a direct comparison of selected transients will be presented for a more comprehensive look at the transient features and how TRACS is able to simulate real world measurements.
-
-\subsection{Selected Transients}
 
 From the previous voltage scans, three transients have been selected. The three voltages selected are 80V, 100V and 140V. The lowest values was selected because it's the lowest value at which the Double Peak feature is visible, the highest voltage was chosen for that particular reason and 100V will be shown to have a point in between those maximum and minimum values.
 
