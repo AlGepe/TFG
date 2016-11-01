@@ -1,6 +1,11 @@
-\chapter{Simulation vs Reality: are TRACS results real?}
+\chapter{Validity of TRACS results for irradiated silicon detectors}
 
 It has already been discussed the theoretical basis upon which TRACS has been developed to include radiation damage effects into its simulations. It has also been discussed how those implementations were made. Now all that is left for TRACS to be considered a useful tool in research. Just like any tool to be used in research, TRACS needs to be consistent with experimental results or, as we are talking about a simulation tool, be able to reproduce reliably experimental results.
+
+%here p``olsen
+A first way to atest the validity of TRACS results after the implementation of radiation damage is to compare them to other measurement already published and accepted results from other simulators. In the thesis published by T.P\"{o}lsen in 2010 it is shown how a linear parametrisation of the \neff can e used to reproduce laboratory measurements accurately. 
+
+These results will be used as the first test to check how accurately TRACS can reproduce real world conditions in its simulations. It is also necessary to conduct a controlled test in which TRACS is compared agains real data measured in the laboratory. By doing this the author can attest the validity of the measuring and simulation procedures. This task will be the second and last test to validate TRACS results.
 
 TRACS is able to reproduce any kind of TCT measurement provided an accurate input of carrier distribution inside the detector. To perform the comparison it is needed to chose one of the three previously mentioned TCT techniques. The SSD group at CERN has in its facilities setups that allow researchers to perform both red-TCT and edge-TCT measurements with a good level of automation. Due to availability of measuring schedule, the choice was made to perform red-TCT measurements in the TCT+ setup at the aforementioned SSD group at CERN, to be compared with simulations from TRACS. In particular bottom-TCT was chose after several measurements for it was the one that showed clearly the signs of radiation damage in the form of the \textit{Double Peak} as a result of the \textit{Double Junction} explained in section \ref{sec:rad}. 
 
@@ -65,7 +70,7 @@ A few sample transients will be selected for direct comparison between measureme
 
 The first milestone for TRACS is to reproduce already published and approved results that other simulators have achieved. For such task the data from [ref{REFERENCIA A DECIDIR}] will be used. In this thesis, the \neff is parametrised as a linear function of depth, a feature TRACS also bares. Even though the data is not available in any other form than the plots published in the aforementioned thesis, it is possible to extract the defining parameters of the \neff and perform a simulation that can be compared to the published one. 
 
-Comparison of the \vec{E} field and transients from both the thesis and TRACS can only be performed \textit{side-by-side} due to the lack of raw data available for a more comprehensive analysis. Transients from T.Poehlsen's thesis also include measured data that supports the validity of the simulation presented there.
+Comparison of the \vec{E} field and transients from both the thesis and TRACS can only be performed \textit{side-by-side} due to the lack of raw data available for a more comprehensive analysis. Transients from T.P\"{o}hlsen's thesis also include measured data that supports the validity of the simulation presented there.
 
 \subsection{Comparison between simulations and real world measurements}
 
