@@ -15,8 +15,10 @@ To avoid adding more sources of complexity to the simulation, the detector used 
 
 In the following sections an extended description of the experimental setup and  measurement procedure will be presented, followed by a discussion of the results and the comparison between TRACS simulations and laboratory measurements.
 
-\section{Experimental procedure} % (fold)
+\section{Data acquisition process} % (fold)
 \label{sec:future_improvements}
+
+To compare TRACS to previous simulations the process is straight forward. The only steps needed to be taken were gathering the data from previous simulations and reproducing the plots using TRACS and the same linear \neff parametrisation used in the reference simulation. The only unusual step taken was the digitalization of the plots presented in the referenced thesis so that comparison in the same plot was possible. For the rest of this section we will focus only on the TCT techniques and the setup and measuring procedure in the laboratory for it was performed by the author as part of this project.
 
 The basics of TCT measurement techniques have been explained in section \ref{sec:tct} so this section will focus on the more specific implementation of those principles of operation in the TCT+ setup at CERN. The TCT+ setup is a standard laboratory setup belonging to the SSD group in which this project was developed. The measurements were performed by the author using the previously mentioned facility under supervision of a member of the SSD group. Therefore the details explained in the following subsections will be specific to the TCT+ setup as used by the SSD group at CERN. However, since most of the components and arrangement of TCT+ are similar to those used in most of the TCT-capable facilities, many of the explanations ahead will be applicable to any TCT setup elsewhere. 
 
@@ -70,24 +72,29 @@ A few sample transients will be selected for direct comparison between measureme
 
 The first milestone for TRACS is to reproduce already published and approved results that other simulators have achieved. For such task the data from [ref{REFERENCIA A DECIDIR}] will be used. In this thesis, the \neff is parametrised as a linear function of depth, a feature TRACS also bares. Even though the data is not available in any other form than the plots published in the aforementioned thesis, it is possible to extract the defining parameters of the \neff and perform a simulation that can be compared to the published one. 
 
-Comparison of the \vec{E} field and transients from both the thesis and TRACS can only be performed \textit{side-by-side} due to the lack of raw data available for a more comprehensive analysis. Transients from T.P\"{o}hlsen's thesis also include measured data that supports the validity of the simulation presented there.
+Transients from T.P\"{o}hlsen's thesis also include measured data that supports the validity of the simulation presented there, but the estimated \neff used to generate the \vec{E} fields and transients was not measured in the laboratory but fitted from the transients' shape. The values extracted from the plot in the reference for the \neff were $\neff(z = 0) = 2.5 \cdot 10^{13} cm^{-3}$ and $\neff(z = 150) = -5 \cdot 10^{13} cm^{-3}$. From such parameters we can define a linear \neff distribution in TRACS and the results we obtained for the \vec{E} field are presented in Figure \ref{fig:CompFields}
 
 \begin{figure}[H]
 	\centering
+	Aqui deberian estar los fields Pohlsen y TRACS comparados
 	\includegraphics[width=0.8\textwidth]{Pohlsen_fields.png}
-	\label{fig:mues2}
-	\caption{Imagen of the detected wavefront for the laser without any aberration introduced. The values are: $P2V = -0.055waves$ and $P = 0.001D$. Anything below those values is considered noise.}
+	\label{fig:CompFields}
+	\caption{Electric field inside the diode as a function of depth. Simulations from [REFERENCIAPOHLSEN] and TRACS are plotted together for comparison. Agreement between both simulations is remarkable}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
+	Esto desaparecera cuando junte los plots
 	\includegraphics[width=0.88\textwidth]{TRACSpohlsFields.png}
 	\label{fig:mues2}
 	\caption{Imagen of the detected wavefront for the laser without any aberration introduced. The values are: $P2V = -0.055waves$ and $P = 0.001D$. Anything below those values is considered noise.}%referenciar en el pie de figura
 \end{figure}
 
+Now top-TCT was simulated and the obtained transients compared to the laboratory measurements. The same simulations were performed with TRACS and compared to the simulations and measurements from the reference. It is important to note that the trapping simulation is different between both simulators with TRACS having a constant \tau whilst the reference uses a field-dependant \tau. Results are therefore expected to not me the same but compatible.
+
 \begin{figure}[H]
 	\centering
+	Aqui deberian estar los transients Pohlsen y TRACS comparados
 	\includegraphics[width=0.8\textwidth]{Pohlsen_scr.png}
 	\label{fig:mues2}
 	\caption{Imagen of the detected wavefront for the laser without any aberration introduced. The values are: $P2V = -0.055waves$ and $P = 0.001D$. Anything below those values is considered noise.}
