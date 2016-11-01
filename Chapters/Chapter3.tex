@@ -1,13 +1,13 @@
-\chapter{The effects of radiation in silicon detectors}
+\chapter{The effects of radiation in silicon detectors}% No definitivo
 \label{sec:rad}
-% I haven't talked about leakage current and I most cerntainly should
+% I haven't talked about leakage current and I most certainly should
 
 When a particle crosses a silicon detector, it can loose energy via ionization, which is a reversible process because the electrons ripped from the atoms will end up recombining, or via non-ionizing interactions, where the particle interacts with the Silicon atoms or with the dopant atoms. The effect is counterproductive and leads to a reduction of the collected charge, among other macroscopical effects. It is important to understand these changes and have a parametrisation of the degradation. Understanding them is the basis to designing a radiation-hard detectors.
 
 In this chapter we summarise the most important mechanisms of radiation damage. One of my contributions to the development of TRACS was the implementation of this model in the code. 
 
 
-\section{Wrecking the lattice}
+\section{Wrecking the lattice}% No definitivo
 
 When a particle goes through a silicon detector it can ionise the material and move electrons out of the valence band into the conduction band generating an electrical signal than be read, as we have previously discussed. Another possibility is that the particle knocks off one or more of the silicon atoms that compose the lattice. In this case the atom might return to its original position if the momentum transfer is small dissipating the extra energy via thermal vibrations or it might get knock off completely from its original position. In the latter case the lattice presents now a defect that will influence its properties. For this section we will only focus on the types of defects and their evolution, leaving their effects to the next two sections. 
 
@@ -19,7 +19,7 @@ Usually the NEIL (Non-Ionising Energy Loss) hypothesis is used to characterise t
 
 Another important aspect of radiation damage and radiation-induced defects is their evolution in time. It has been shown that the effects of radiation on silicon detector evolve with time even after the irradiation has been stopped. Studies on annealing of irradiated silicon detectors show that typically there is a beneficial evolution right after the irradiation process in which the silicon damage becomes smaller. After this stage annealing increases the damage on irradiated silicon detectors with time reaching levels well over the initial state right after irradiation. This process can be slowed down by lowering the temperature of the detector. Evolution achieved in around 21h at 60C can be slowed down to about 500 years just by cooling down the irradiated detector to -10C. It is for this reason that silicon detectors are usually annealed for a short period of time after irradiation, and the stored at low temperatures for transport and experimental measurements.
 
-\section{It's a trap}
+\section{Trapping effects} % No definitivo
 
 Defects in the silicon lattice have no effect in the generation of $e-h$ pairs but do have an effect in their drift and collection. This is due to the defects introducing what are called $deep$ levels. Such deep levels lie in the gap between the conduction and valence bands but much further from them than the shallow levels introduced by impurities as explained in section [SECTION].
 
@@ -32,7 +32,7 @@ Being, as it still is, a body of great debate, \neff parametrisation has yet to 
 The second mayor parametrisation that should also be considered in the frame of this project is a variation on the basic fundamentals of the linear model. This next model was proposed more recently by G.Kramberger and states that the shape of \neff after irradiation can be parametrised in some cases as being constant in three separated regions. As it can be seen in Figure FIGURE\_3ZONE\_NEFF each of the three parts of the \neff would be constant generating a linear electric field with three different slopes resembling the shape of the aforementioned parabola that is observed experimentally.
 
 
-\section{Signal degradation}
+\section{Signal degradation} % No definitivo
 
 After taking a look at the effects that radiation has on silicon it is important to understand how radiations changes the read-out signal, since that is what will be measured in the laboratory. As we have already mentioned the main effect of radiation damage from a practical point of view is the creation of deep levels inside the band gap that act as trapping centers for the charge carriers moving inside the silicon bulk. For the sake of simplicity and ease of explanation when explanation when talking about the implementation of radiation damage in the software TRACS, we will treat \neff deformation as a different effect. This is very practical as it helps understand dynamical and static effects separately. 
 
