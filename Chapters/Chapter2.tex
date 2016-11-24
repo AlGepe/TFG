@@ -55,7 +55,7 @@ field will then stop diffusion of free carriers. The ionised atoms in the
 silicon lattice cannot effectively move from their initial positions. The region
 depleted of lightly bound (free) charge carriers is called the depletion zone.
 Note that this region exists even in the absence of an external potential. The
-charge separation between the 2 oppositely doped volumes leads to an electrostic
+charge separation between the 2 oppositely doped volumes leads to an electrostatic
 potential (Poisson equation). This voltage difference is called built-in
 voltage. If now a potential difference is applied such that the n-side is made
 positive with respect to the p-side, the depleted region will increase. This is
@@ -97,10 +97,10 @@ mean there is an electric field across the whole active volume of the detector
 (depleted area) in which any carrier created inside will move by drift. 
 
 
-\section{Detector configuration and signal creation}
+\section{Detector configuration}
 
 If the detector is partially depleted, then part of the detector will not be
-efficient to detect ionization after a crossing particle. Indeed, the free
+efficient to detect ionisation after a crossing particle. Indeed, the free
 charge carriers produced will recombine in the undepleted bulk. Therefore, the
 full detector needs to be depleted for optimal operation. For this purpose a
 bias voltage ($V_{bias}$) is applied following the same polarity as the built-in
@@ -111,18 +111,18 @@ Solving Poisson equation with \vias as contour condition, the following
 expression is obtained: 
 
 \begin{equation}
-w = \sqrt{\frac{2\epsilon V_{bias}{\epsilon_0 N_D}}}
+w = \sqrt{\frac{2\epsilon V_{bias}}{\epsilon_0 N_D}}
 \label{eq:widthVias}
 \end{equation}
 
 What this equation shows is that the depleted volume increases as the square
 root of the bias voltage and it is inversely proportional to the doping of the
-bulk. Effectively, the higher the dopping, the more difficult is to deplete the
+bulk. Effectively, the higher the doping, the more difficult it is to deplete the
 device with a fixed voltage. 
 
 The silicon pad detector remains one of the most important detector designs,
 particularly in research, due to its simplicity. It is composed of a thin
-(typically ~1$\mu$m) layer of very highly doped silicon, called the implant,
+(typically ~3$\mu$m) layer of very highly doped silicon, called the implant,
 that sits on top of a thicker (typically 300$\mu$m) piece of silicon with a
 lower volume density of dopants, called the bulk. Silicon particle detectors are
 bulk devices. Connection to the electrical circuit that provides the \vias and
@@ -133,8 +133,8 @@ part of the pad and an ohmic contact with a metal in the back.
 %-> Gran Frase
 
 The depleted part of the silicon detector is the volume of silicon in which free
-charge carriers are created by ionization and then drift inducing an electrical
-current in the electrodes. This instantaneus current can be time resolved and
+charge carriers are created by ionisation and then drift inducing an electrical
+current in the electrodes. This instantaneous current can be time resolved and
 recorded for further analysis. This is the basis of the Transient Current
 Technique that will be explained further on in this report. The induced current
 in a system of electrodes can be readily calculated using Ramo-Shockely theorem.
