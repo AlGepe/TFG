@@ -45,12 +45,13 @@ To explain why the \neff gets modified after irradiation, we will follow the arg
 
 % Consecuences of a modified Neff (leakage current, higher Vdep, type inversion, DP & DJ)
 
+One of the consequences of having a different \neff configuration is that the resulting electric field inside the detector gets modified. In the linear case mentioned above a paranolic electric field appears giving rise to the characteristic \emph{double peak} (DP) shape of the transient waveforms. Another consequence of not having a constant \neff is the appearance of a second $p-n$ junction at the end of the detector creating the double junction (DJ) effect. The apparition of the DJ means that in a detector not fully depleted both ends remain sensitive to radiation.
+
+Other effects of the modified \neff of lesser importance for this project are the increase in leakage current, a higher \vias needed for depleting the full detector volumen, and more exotic processes such as type inversion. % Deberia hablar algo mas de type inversion? decir lo que es?
+
 % EXPLAIN WHY IT MIGHT NOT BE LINEAR but something more exotic (link with TRACS capabilities)
 
-
-
-
-
+So far it has only been considered that the modification of the \neff due to radiation-induced defects gives rise to a linear \neff inside the detector. However, this might not be always the case, as it has been proposed in more recent publications\cite{KramVertex}. The analysis performed using edge-TCT techniques suggest that the \neff configuration might have three different regions in which its value remains constant. This parametrization will be referred to as \emph{triconstant} and can also explain the DJ and DP effects seen experimentally. As it will be explained in detail later, both linear and triconstant parametrisations have been implemented into TRACS as well as a third parametrisation consisting of three linear regions.  
 
 \section{Signal degradation} % No definitivo
 
