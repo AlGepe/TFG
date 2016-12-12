@@ -28,6 +28,7 @@ Typical procedure after irradiation of the detector includes and annealing phase
 %Another important aspect of radiation damage and radiation-induced defects is their evolution in time. It has been shown that the effects of radiation on silicon detector evolve with time even after the irradiation has been stopped. Studies on annealing of irradiated silicon detectors show that typically there is a beneficial evolution right after the irradiation process in which the silicon damage becomes smaller. After this stage annealing increases the damage on irradiated silicon detectors with time reaching levels well over the initial state right after irradiation. This process can be slowed down by lowering the temperature of the detector. Evolution achieved in around 21h at 60C can be slowed down to about 500 years just by cooling down the irradiated detector to -10C. It is for this reason that silicon detectors are usually annealed for a short period of time after irradiation, and the stored at low temperatures for transport and experimental measurements.
 
 \section{Trapping effects} % No definitivo
+\label{sec:trapEfect}
 
 %Defects in the silicon lattice have no effect in the generation of $e-h$ pairs but do have an effect in their drift and collection. This is due to the defects introducing what are called $deep$ levels. Such deep levels lie in the gap between the conduction and valence bands but much further from them than the shallow levels introduced by impurities as explained in section [SECTION].
 
@@ -56,6 +57,7 @@ So far it has only been considered that the modification of the \neff due to rad
 On top of the \neff modification, the deep levels induced by radiation have also an impact on signal collected from the detector. When charge carriers drift through the irradiated volume they may get trapped in a radiation-induced defect and remain there for as long as several miliseconds. This is much longer than the collection time (of the order of tens of nanoseconds) so they are effectively lost from the point of view of read-out system. As a result, the waveform shape gets distorded (as it will be explained later) and the charge collected decreases worsening the performance of the detector.
 
 \section{Signal degradation} % No definitivo
+\label{sec:signalDeg}
 
 %After taking a look at the effects that radiation has on silicon it is important to understand how radiations changes the read-out signal, since that is what will be measured in the laboratory. As we have already mentioned the main effect of radiation damage from a practical point of view is the creation of deep levels inside the band gap that act as trapping centers for the charge carriers moving inside the silicon bulk. For the sake of simplicity and ease of explanation when explanation when talking about the implementation of radiation damage in the software TRACS, we will treat \neff deformation as a different effect. This is very practical as it helps understand dynamical and static effects separately. 
 
@@ -65,20 +67,36 @@ On top of the \neff modification, the deep levels induced by radiation have also
 
 %Both effects combined yield the typical $double peak$ shape obtained when subjecting the irradiated detectors to the TCT analysis that are normally performed in the lab. This shape combines the double peak feature of the electric field with the exponential dampening of the electrical charge collected. This kind of measurements and analysis are very useful in studying the charateristics of irradiated silicon detectors including determination of trapping times, \neff profile and charge collection efficiency, as it will be shown in the following chapter.
 
-The effects of radiation in detector performance can be observed both in terms on thetotal collected charge and the shape of the transient waveforms. The modified \neff distribution inside the detector has an effect on the shape of the waveforms while the effects of trapping centers has an impact both in the waveforms and in the total collected charge.
+The effects of radiation in detector performance can be observed both in terms on the total collected charge and the shape of the transient waveforms. The modified \neff distribution inside the detector has an effect on the shape of the waveforms while the effects of trapping centers can be seen both in the waveforms and in the total collected charge.
 
-It has been explained in \ref{sec:Ramo} that the $I(t)$ profile of the collected signal from the detector depends on the \vec{E} inside of it. It then follows that a modified \neff (and consequently a modified \vec{E}) will have an effect in the collected signal that might now show a double peak (DP) due to the previously mentioned DJ effect. The collection time might also be affected for the same reason.
+It has been explained in \ref{sec:Ramo} that the $I(t)$ profile of the collected signal from the detector depends on the \vec{E} inside of it. It then follows that a modified \neff (and consequently a modified \vec{E}) will have an effect in the collected signal and might show a double peak (DP) due to the previously mentioned DJ effect. The collection time might also be affected for the same reason.
 
-For the trapping effects, a carrier transversing an irradiated detector has a probability of being trapped of 
+For the trapping effects, the probability that a carrier drifting inside the silicon gets trapped in the radiation-induced deep levels after a time $dt$ is
 
 \[p_{trap} = 1/wateves \cdot dt\] % Need to check bibliography
 
-in a time $dt$ with $\tau$ being the trapping time. The $\tau$ is an experimentally determined parameter that is usually taken to be constant or dependant on the electric field, but not on the elapsed time $dt$. This allows as to write the number of non trapped carriers $N$ after a time $\Delta t$ as
+with $\tau$ being the trapping time. The $\tau$ is an experimentally determined parameter that is usually taken to be constant or dependant on the electric field, but not on the elapsed time $dt$. This allows as to write the number of non trapped carriers $N$ after drifting in the detector for a time $\Delta t$ as
+
 \[N = N_0 \cdot \exp{\big(- \tau/\Delta t} \big)\]
+
 where $N_0$ is the initial number of carriers generated in the detector. Since the intensity is the sum of every carrier's contribution, the previous equation can be re-written as
+
 \begin{equation}
 	I(t) = I_0(t) \cdot \exp{\big(-\tau / (t-t_0)\big)}
  \label{eq:trapCurr}
 \end{equation}
-where $I_0(t)$ is the total current that would be read if there were no trapped carriers. This last equation has little interest from a experimental point of view but it will help explain the implementation of trapping effects in TRACS. The net result of trapping centers is reduce the charge collected and to distord the shape of the waveform by reducing with time the current recorded.
+
+where $I_0(t)$ is the total current that would be read if there were no trapped carriers. 
+
+\textbf{\emph{Duda}}
+(opcion 1)>>>>>>>>>>>>>>>>>>>>>>>>>>>
+It might not appear to reader why it is iteresting to consider the no-trapping on an irradiated detector with a modified \neff, but the reason will become more aparent when the implementation of radioation damage is explained. 
+
+Opcion 2>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+This last equation has little interest from a experimental point of view but it will help to understand the implementation of trapping effects in TRACS. 
+
+Fin opciones<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+The net result of trapping centers is to reduce the charge collected and the effect can be seen in the transients waveform.
 

@@ -62,6 +62,20 @@ First tab allows the user to configure all the detector parameters and solve the
 
 The other two tabs are used for carrier drifting and waveform simulation. Options range from 1 carrier simulations, to simulating a line of carriers to full laser illumination simulations (provided the correct file). All these tools are equipped with carrier visualisation tools as well as a waveform plotting area for quickly checking the shapes and general features. On top of these visualisation-oriented features, TRACS-GUI also provides a way to save the waveforms in plain text format.
 
+\subsection{Approximations and limits of TRACS} % Necesito ayuda para maquillar el titulo
+\label{sec:approxTRACS}
+
+Being a fast simulator, as it is, TRACS needs to make some approximation that lower the computational requirements of the simulations. This approximations might compromised the precision of TRACS results but it has been seen that in real case scenarios TRACS is capable of matching accurately the real data.
+
+TRACS solves internally the necessary PDEs in 2D only because any planar detector can be approximated as being 2D and the computational requirements are higher with more dimensions. This means TRACS can only simulate planar detectors as it is now. Planar detectors such as microstrips and diodes are the most common type of silicon detector. However, because TRACS makes use of Fenics libraries it is possible to implement 3D detectors in the future if required.
+
+Another approximation made by TRACS is neglecting any electron-electron (or hole-hole) interactions inside the detector. It is a justified since the \vec{E} inside the detector are many orders of magnitude greater than the \vec{E} due to all the electrons. 
+
+The thermal diffusion of charge carriers inside the detector is also neglected in TRACS. Drift velocity is of the order of [LOOK UP THE NUMBERs] while the diffusion is only [LOOK AGAIN] and can be neglected. A consequence of this simplification is that TRACS is only accurate when simulating fully depleted detectors. 
+
+%No thermal diffusion 
+
+
 \section{The development phase of TRACS upgrade} % (fold)
 \label{sec:werk}
 
@@ -85,9 +99,9 @@ The different effects of radiation damage in the signal obtained from a silicon 
 
 Three models for the change of \neff with fluence were included.The first one, the linear approximation, is easy to implement and has only 2 free parameters that would need adjusting or knowing beforehand depending on the use case. Since this parametrisation has given good results in modelling \neff modification in irradiated silicon detectors throughout different research studies, it will used as the most basic and easy to use and implement approximation for radiation damage.
 
-The second modelling of the \neff consists on 3 different areas where the carrier density is linear with depth. Restrictions are imposed in the allowed values for each zone so that continuity is ensured. 
+The second modelling of the \neff  has already been introduced in section \ref{sec:trapEfect} and consists on 3 different areas where the carrier density is constant. 
+The third model is a combination of the two previous models. The \neff configuration is assumed to have three different zones in which it is linear with depth. This two last approximations require that restrictions are imposed in the allowed values for each zone so that continuity and derivability are ensured.
 
-% Trilinear here
 
 In the linear approximation, continuity and derivability are guaranteed. Derivability, though not strictly necessary for current use of TRACS, has been ensured in both triple linear and triple constant approximations by means of hyperbolic tangents connecting the end of one area with the beginning of the adjacent one. Continuity in the triple constant approximation arises from these hyperbolic tangent bridges that connect smoothly one value of the \neff in one area to the vale in the next. 
 
@@ -122,11 +136,10 @@ For the configuration file a new file \textit{Config.TRACS} was added with its o
 
 As well as the code and CLI, the GUI version of TRACS has also been upgraded to account and make use of the changes for simulating irradiated detectors. These changes include the extra fields to input the new parameters such as \neff parametrisation type and coordinates, trapping time and a toggle to switch between simulation of irradiated detectors or non-irradiated detectors. 
 
-%It is an unintended feature of TRACS that you can de-couple \neff modification and trapping effects allowing the user to explore both effects separately by simply toggling on radiation simulation and inputing a constant \neff or a very big trapping time (i.e.: effectively no trapping). 
+%It is an unintended feature of TRACS that one can de-couple \neff modification and trapping effects allowing the user to explore both effects separately by simply toggling on radiation simulation and inputing a constant \neff or a very big trapping time (i.e.: effectively no trapping). 
 Other improvements to TRACS-GUI include the implementation of RC shapping capabilites for output waveforms as well as resizeable plot throgout all tabs. The last of the visual improvements to TRACS is the inclussion of the Custom N$_{eff}$ Visualization Tool which allows the user to preview the \neff configuration before starting the simulation.
 
 In summary, TRACS has been improved and upgraded to include radiation effects into the simulations with user defined \neff and trapping parameters. On top of those improvements TRACS, documentation was also improved. Flexibility was added so that now TRACS can run as an aditional library or module on a bigger piece of software.
 
 The original version of TRACS showed excellent agreement with experimental data from laboratory measurements so it is expected that the new version of TRACS be a useful and accurate tool. This accuracy will be tested in the next section, that will prove TRACS usefulness as a research tool for anyone intereseted in radiation damage in silicon detectors.
 
-% section let_s_put_the_project_in_perspective (end)
