@@ -74,10 +74,10 @@ For the trapping effects, a carrier transversing an irradiated detector has a pr
 \[p_{trap} = 1/wateves \cdot dt\] % Need to check bibliography
 
 in a time $dt$ with $\tau$ being the trapping time. The $\tau$ is an experimentally determined parameter that is usually taken to be constant or dependant on the electric field, but not on the elapsed time $dt$. This allows as to write the number of non trapped carriers $N$ after a time $\Delta t$ as
-\[N = N_0 \cdot \exp{- \tau/\Delta t} \]
+\[N = N_0 \cdot \exp{\big(- \tau/\Delta t} \big)\]
 where $N_0$ is the initial number of carriers generated in the detector. Since the intensity is the sum of every carrier's contribution, the previous equation can be re-written as
 \begin{equation}
-	I(t) = I_0(t) \cdot \exp{-\tau / (t-t_0)}
+	I(t) = I_0(t) \cdot \exp{\big(-\tau / (t-t_0)\big)}
  \label{eq:trapCurr}
 \end{equation}
 where $I_0(t)$ is the total current that would be read if there were no trapped carriers. This last equation has little interest from a experimental point of view but it will help explain the implementation of trapping effects in TRACS. The net result of trapping centers is reduce the charge collected and to distord the shape of the waveform by reducing with time the current recorded.
