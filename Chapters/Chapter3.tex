@@ -65,8 +65,20 @@ On top of the \neff modification, the deep levels induced by radiation have also
 
 %Both effects combined yield the typical $double peak$ shape obtained when subjecting the irradiated detectors to the TCT analysis that are normally performed in the lab. This shape combines the double peak feature of the electric field with the exponential dampening of the electrical charge collected. This kind of measurements and analysis are very useful in studying the charateristics of irradiated silicon detectors including determination of trapping times, \neff profile and charge collection efficiency, as it will be shown in the following chapter.
 
-%EXPLAIN DP FEATURES
+The effects of radiation in detector performance can be observed both in terms on thetotal collected charge and the shape of the transient waveforms. The modified \neff distribution inside the detector has an effect on the shape of the waveforms while the effects of trapping centers has an impact both in the waveforms and in the total collected charge.
 
+It has been explained in \ref{sec:Ramo} that the $I(t)$ profile of the collected signal from the detector depends on the \vec{E} inside of it. It then follows that a modified \neff (and consequently a modified \vec{E}) will have an effect in the collected signal that might now show a double peak (DP) due to the previously mentioned DJ effect. The collection time might also be affected for the same reason.
 
-%EXPLAIN TRAPPING as exponential loss of carriers/signal
+For the trapping effects, a carrier transversing an irradiated detector has a probability of being trapped of 
+
+\[p_{trap} = 1/wateves \cdot dt\] % Need to check bibliography
+
+in a time $dt$ with $\tau$ being the trapping time. The $\tau$ is an experimentally determined parameter that is usually taken to be constant or dependant on the electric field, but not on the elapsed time $dt$. This allows as to write the number of non trapped carriers $N$ after a time $\Delta t$ as
+\[N = N_0 \cdot \exp{- \tau/\Delta t} \]
+where $N_0$ is the initial number of carriers generated in the detector. Since the intensity is the sum of every carrier's contribution, the previous equation can be re-written as
+\begin{equation}
+	I(t) = I_0(t) \cdot \exp{-\tau / (t-t_0)}
+ \label{eq:trapCurr}
+\end{equation}
+where $I_0(t)$ is the total current that would be read if there were no trapped carriers. This last equation has little interest from a experimental point of view but it will help explain the implementation of trapping effects in TRACS. The net result of trapping centers is reduce the charge collected and to distord the shape of the waveform by reducing with time the current recorded.
 
