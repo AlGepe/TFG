@@ -37,20 +37,20 @@ Typical edge-TCT scans are performed by sampling the whole detector height in st
 Using this technique one can obtain the same results as using the red-TCT techniques with the additional benefit of being able to sample different parts of the detector. One can also measure the width of the depleted area for a given voltage by performing an edge-TCT scan and measuring where the total 
 collected charge starts to drop. The decrease in collected charge marks the transition between the drif region and the diffusion region where the detector is not depleted. The precision of this measurement is limitted by the waist of the laser beam ($\sigma \approx 8-10\mui$ m). This limitation in precision and the lack of information in the direction of the laser beam are the most notable issues with edge-TCT measuremtns.
 
-\section{Two Photon Absorption - TCT} % (fold)
-
-All the aforementioned TCT methods are first order processes in which one photon produces an electron-hole pair. The Two Photon Absorption TCT is different in this respect; TPA-TCT exploits a second order process in which two photons are responsible for a single electron-hole creation.
-
-% WIP (physical TPA process explanation)
-% Whilst typically the band gap is seen as a totally forbidden region, there's a short amount of time that electrons might be allowed to stay there, occupying a meta-stable state. The lifetime of these meta-stable states are of the order of hundreds of femtoseconds and can usually be neglected. However, if one uses a fast-pulse laser, it is possible to exploit those intermediate states by sending a secondary photon before the de-excitation providing the electron with enough energy to jump to the conduction band where it reach a stable energy level.
-
-Such a process requires the photon energy to be above half the band gap but less than the band gap energy. Fast pulse laser and high intensity of light at the region where carrier pairs should be generated are also crucial for second order processes.
-
-Since the absorption (and hence carrier generation) is proportional to the intensity of the beam squared one can play with focusing to get an abrupt transition between absorbing and non-absorbing regions. Such an abrupt transition achieved by the usage of high focusing lenses, allows for creation of really small volumes of space in which carriers will be created. 
-
- This small volume, often called voxel, is a few microns in any direction of space allowing for 3D movement throughout the detector while maintaining good spacial resolution. Having a volume of a few cubic microns allows for very fine characterisation of the detectors and makes possible the creation of accurate 3D maps of detector properties that permit to see local imperfections or strange behaviours after irradiation.
-
- The TPA-TCT technique is by far the most accurate one but it is still in development phase. For the moment various analysis have been performed in the laboratory using this technique with good results. Even though it is a new technique, TRACS is able to simulate such measurements provided with the correct charge carrier distribution.
+ %\section{Two Photon Absorption - TCT} % (fold)
+%
+ %All the aforementioned TCT methods are first order processes in which one photon produces an electron-hole pair. The Two Photon Absorption TCT is different in this respect; TPA-TCT exploits a second order process in which two photons are responsible for a single electron-hole creation.
+%
+%% WIP (physical TPA process explanation)
+%% Whilst typically the band gap is seen as a totally forbidden region, there's a short amount of time that electrons might be allowed to stay there, occupying a meta-stable state. The lifetime of these meta-stable states are of the order of hundreds of attoseconds and can usually be neglected. However, if one uses a fast-pulse laser, it is possible to exploit those intermediate states by sending a secondary photon before the de-excitation providing the electron with enough energy to jump to the conduction band where it reaches a stable energy level.
+%
+%Such a process requires the photon energy to be above half the band gap but less than the band gap energy. Fast pulse laser and high intensity of light at the region where carrier pairs should be generated are also crucial for second order processes.
+%
+%Since the absorption (and hence carrier generation) is proportional to the intensity of the beam squared one can play with focusing to get an abrupt transition between absorbing and non-absorbing regions. Such an abrupt transition achieved by the usage of high focusing lenses, allows for creation of really small volumes of space in which carriers will be created. 
+%
+ %This small volume, often called voxel, is a few microns in any direction of space allowing for 3D movement throughout the detector while maintaining good spacial resolution. Having a volume of a few cubic microns allows for very fine characterisation of the detectors and makes possible the creation of accurate 3D maps of detector properties that permit to see local imperfections or strange behaviours after irradiation.
+%
+ %The TPA-TCT technique is by far the most accurate one but it is still in development phase. For the moment various analysis have been performed in the laboratory using this technique with good results. Even though it is a new technique, TRACS is able to simulate such measurements provided with the correct charge carrier distribution.
 
  \section{Experimental setup for (red) TCT measurement} % (fold)
  \label{sec:TCTsetup}
@@ -63,7 +63,7 @@ Only the setup for red-TCT measurements will be described for reason that will e
 
 % Extra considerations (temperature, alignment, isolation(light and electricity)\ldots)
 
-The whole setup is controlled via a custom LabView\copyright\cite{labview} program that also allows for remote operation and measurement. The same software takes care of saving and storing the data in the corresponding format on an ASCII file that is later analised. The data analysis procedure is performed using software specially developed in the SSD group for this purpose and that can can calculate and plot numeros physical parameters of interest such as charge collection efficiency, collection time\ldots
+The whole setup is controlled via a custom LabView\cite{labview} program that also allows for remote operation and measurement. The same software takes care of saving and storing the data in the corresponding format on an ASCII file that is later analised. The data analysis procedure is performed using software specially developed in the SSD group for this purpose and that can can calculate and plot numeros physical parameters of interest such as charge collection efficiency, collection time\ldots
 
 
 
