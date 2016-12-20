@@ -67,22 +67,22 @@ On top of the \neff modification, the deep levels induced by radiation have also
 
 %Both effects combined yield the typical $double peak$ shape obtained when subjecting the irradiated detectors to the TCT analysis that are normally performed in the lab. This shape combines the double peak feature of the electric field with the exponential dampening of the electrical charge collected. This kind of measurements and analysis are very useful in studying the charateristics of irradiated silicon detectors including determination of trapping times, \neff profile and charge collection efficiency, as it will be shown in the following chapter.
 
-The effects of radiation in detector performance can be observed both in terms on the total collected charge and the shape of the transient waveforms. The modified \neff distribution inside the detector has an effect on the shape of the waveforms while the effects of trapping centers can be seen both in the waveforms and in the total collected charge.
+The effects of radiation in detector performance can be observed both in terms of the total collected charge and the shape of the transient waveforms. The modified \neff distribution inside the detector has an effect on the shape of the waveforms while the effects of trapping centers can be seen both in the waveforms and in the total collected charge.
 
 It has been explained in \ref{sec:Ramo} that the $I(t)$ profile of the collected signal from the detector depends on the \vec{E} inside of it. It then follows that a modified \neff (and consequently a modified \vec{E}) will have an effect in the collected signal and might show a double peak (DP) due to the previously mentioned DJ effect. The collection time might also be affected for the same reason.
 
 For the trapping effects, the probability that a carrier drifting inside the silicon gets trapped in the radiation-induced deep levels after a time $dt$ is
 
-\[p_{trap} = 1/wateves \cdot dt\] % Need to check bibliography
+\[p_{trap} = 1/\lambda \cdot dt\] % Need to check bibliography
 
-with $\tau$ being the trapping time. The $\tau$ is an experimentally determined parameter that is usually taken to be constant or dependant on the electric field, but not on the elapsed time $dt$. This allows as to write the number of non trapped carriers $N$ after drifting in the detector for a time $\Delta t$ as
+with $\lambda$ the effective carrier trapping distance that can be different for electrons and holes. We will use $\tau \approx \frac{\lambda}{v_{thermal}}$ with $\tau$ being the trapping time and can be used in most situations\cite{Kramberger}. The $\tau$ is an experimentally determined parameter that is usually taken to be constant or dependant on the electric field. For the rest of the report we will consider $\tau$ to be a constant except otherwise stated. This allows to write the number of non trapped carriers $N$ after drifting in the detector for a time $\Delta t$ as
 
-\[N = N_0 \cdot \exp{\big(- \tau/\Delta t} \big)\]
+\[N = N_0 \cdot \exp{\big(\frac{-\Delta t}{\tau}} \big)\]
 
-where $N_0$ is the initial number of carriers generated in the detector. Since the intensity is the sum of every carrier's contribution, the previous equation can be re-written as
+where $N_0 = N(\Delta t = 0)$ the initial number of carriers generated in the detector. Since the intensity is the sum of every carrier's contribution, if we assume that every carrieres have similar contributions to the total current the previous equation can be re-written as
 
 \begin{equation}
-	I(t) = I_0(t) \cdot \exp{\big(-\tau / (t-t_0)\big)}
+	I(t) = I_0(t) \cdot \exp{\big(\frac{-\Delta t}{\tau}\big)}
  \label{eq:trapCurr}
 \end{equation}
 
@@ -90,7 +90,7 @@ where $I_0(t)$ is the total current that would be read if there were no trapped 
 
 \textbf{\emph{Duda}}
 (opcion 1)>>>>>>>>>>>>>>>>>>>>>>>>>>>
-It might not appear to reader why it is iteresting to consider the no-trapping on an irradiated detector with a modified \neff, but the reason will become more aparent when the implementation of radioation damage is explained. 
+It might not appear to the reader why it is interesting to consider the no-trapping $I_0(t)$ on an irradiated detector with a modified \neff, but the reason will become more aparent when the implementation of radiation damage is explained. 
 
 Opcion 2>>>>>>>>>>>>>>>>>>>>>>>>>>
 
