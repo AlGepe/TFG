@@ -5,26 +5,27 @@
 %We have already stated the importance of simulating software in research in general and in radiation damage studies in particular, so it should come as no surprise that this next chapter is entirely dedicated to the software developed during this project. 
 When talking about simulation software one can usually classify it in two big categories: fast light-weight approximate simulators and slow, powerful, accurate simulators. The latter group being often used for theory orientated checks and the fast simulators commonly used for measurement comparison in laboratory situations.
 
-For the purpose of this project we will focus on the fast and light-weight simulators since that is the software that was upgraded during this project. That is not to say that slow accurate simulators are not useful for the project, on the contrary both software types can complement each other in many scenarios, but are not of crucial importance for the project itself.
+For the purpose of this project we will focus on the fast and light-weight simulators since that is the software that was upgraded during this project. 
 
+% Confirm with Marcos before writting why we don't use others
 In the silicon detector simulation field, specially amongst members of the RD-50 collaboration from CERN, there were several already available simulators capable of reproducing TCT measurements from the laboratory for different detector configurations (diode, micro-strips\ldots) as well as some other features specific to each individual software. The software of choice for this project was the Transient Current Simulator (TRACS) developed by Pablo De Castro in 2014 in the PH-DT-DD-SSD group at CERN. 
 
-The reasoning behind the decision of using TRACS was based on two principal arguments. First one is that TRACS is an open-software platform built around efficient open-software libraries that have been already tested and validated in multiple scenarios. And second and probably more important is that the software TRACS was already developed and used in the PH-DT-DD-SSD group where this upgrade project was developed which means it was also designed with future upgrades in mind. 
+The reasoning behind the decision of using TRACS was based on two principal arguments. First one is that TRACS is an open-software platform built around efficient open-software libraries that have been already tested and validated in multiple scenarios. And second and probably more important is that the software TRACS was already developed and used in the PH-DT-DD-SSD group with future improvement in mind such as the one realised in this project.
 
-In this chapter we will present the structural design of the software as it was before the project started including the different parts in which it is divided. We will also present the changes and upgrades performed with particular emphasis on the implementation of radiation damage. Lastly we shall comment briefly on where the software stands now, after the upgrades, and what the forseenable future might hold for TRACS from a wider perspective.
+In this chapter we will present the structural design of the software as it was before the project started including the different parts in which it is divided. We will also present the changes and upgrades performed with particular emphasis on the implementation of radiation damage. Lastly we shall comment briefly on where the software stands now, after the upgrades, and what future improvements could be made.
 
 \section{Software design} % (fold)
 \label{sec:results_and_achievements}
 
 TRACS is built and written in C++11 standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real world process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
 
-During a typical simulation of TRACS, the program would take detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the former step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format.
+During a typical simulation of TRACS, the program takes detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the previous step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format.
 
 This \textit{modus operandi} was present in the original version of TRACS an still remains at the core of every simulation performed using the software. Now we will briefly summarise the different parts that compose TRACS from its original state to the latest upgrade.
 
 \subsection{Detector module and Partial Differential Equations solver}
 
-One of the core modules of TRACS is the one composed by the detector class and PDE solver. This is composed fundamentally of the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are stored and converted into boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
+One of the core modules of TRACS is that composed of the detector class and PDE solver. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are attributes used as boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
 
 If several simulations are to be performed using the same detector and initial conditions, the fields and potentials need not be calculated since they are saved in memory by TRACS. 
 
@@ -35,14 +36,14 @@ It is in this part of the software that the \neff is calculated through the valu
 
 \subsection{Drifting}
 
-After the electric and weighting fields and potentials have been calculated, the software proceeds to move the charge carriers inside the detector. This is taken care by the classes: \textit{CarrierCollection}, \textit{Carrier},\textit{CarrierMobility}, \textit{CarrierTransport}
+After the electric and weighting fields and potentials have been calculated, the software proceeds to move the charge carriers inside the detector. This is taken care by the classes: \textit{CarrierCollection}, \textit{Carrier}, \textit{CarrierMobility}, \textit{CarrierTransport}
 
-The charge carriers are input via a plain text file containig one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier and added together for every time step.
+The charge carriers are input via a ASCII file containig one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier and added together for every time step.
 
 The off-set generation time introduced as an input is a quantity whose actual value is of no significance and it is only introduced to reproduce better the waveforms obtained in the lab, specially the first spike that appears as the carriers are created and the signal in the circuit starts to be collected. 
 
 % maybe use equations here?
-An important feature of the TRACS carriers simulation is the grouping and splitting of carriers by assignment of a weighted charge. This means that groups of charge carriers  of the same type, lying initially very close together can be simulated as being just one charge carrier with a total charge equal to the sum of all the individual charges of the carriers. This reduces greatly the number of individual charge carriers that need to be simulated hence improving simulation times. This grouping can be done with almost no penalty in precision of the results due to the neglect of carrier-carrier interactions.
+An important feature of the TRACS carriers simulation is the grouping and splitting of carriers by assignment of a weighted charge. This means that groups of charge carriers  of the same type, lying initially very close together can be simulated as being just one charge carrier with a total charge equal to the sum of all the individual charges of the carriers. This reduces greatly the number of individual charge carriers that need to be simulated hence improving simulation times. This grouping can be done with almost no penalty in precision of the results as carrier-carrier interactions are neglected.
 
 Simulating the movement of carriers inside the detector requires to solve a first order equation. That is taken care by Runge-Kutta-4 method implemented inside ODEINT libraries. ODEINT libraries now come as a standard part of BOOST libraries inside C++11. These libraries, together with Fenics, ensure fast, efficient and robust computational properties at the core algorithms.
 
@@ -65,21 +66,18 @@ The other two tabs are used for carrier drifting and waveform simulation. Option
 \subsection{Approximations and limits of TRACS} % Necesito ayuda para maquillar el titulo
 \label{sec:approxTRACS}
 
-Being a fast simulator, as it is, TRACS needs to make some approximation that lower the computational requirements of the simulations. This approximations might compromised the precision of TRACS results but it has been seen that in real case scenarios TRACS is capable of matching accurately the real data.
-
+Being a fast simulator, as it is, TRACS needs to make some approximation that lower the computational requirements of the simulations. This approximations could, in principle, compromise the precision of TRACS results but it has been seen that in real case scenarios TRACS is capable of matching accurately the data\cite{TRACSCompar}.
+ 
 TRACS solves internally the necessary PDEs in 2D only because any planar detector can be approximated as being 2D and the computational requirements are higher with more dimensions. This means TRACS can only simulate planar detectors as it is now. Planar detectors such as microstrips and diodes are the most common type of silicon detector. However, because TRACS makes use of Fenics libraries it is possible to implement 3D detectors in the future if required.
 
 Another approximation made by TRACS is neglecting any electron-electron (or hole-hole) interactions inside the detector. It is a justified since the \vec{E} inside the detector are many orders of magnitude greater than the \vec{E} due to all the electrons. 
 
-The thermal diffusion of charge carriers inside the detector is also neglected in TRACS. Drift velocity is of the order of [LOOK UP THE NUMBERs] while the diffusion is only [LOOK AGAIN] and can be neglected. A consequence of this simplification is that TRACS is only accurate when simulating fully depleted detectors. 
-
-%No thermal diffusion 
-
+The thermal diffusion of charge carriers inside the detector is also neglected in TRACS. The thermal diffusion is random for every carrier so the total contribution to the $I(t)$ due to diffusion process is negligible. A consequence of this simplification is that TRACS is only accurate when simulating fully depleted detectors. 
 
 \section{The development phase of TRACS upgrade} % (fold)
 \label{sec:werk}
 
-All the modules and features we have explained in the previous section were part of the original TRACS software. From that point the software was modified and upgraded to \emph{1)}include radiation damage effects  with user defined parameters and \emph{2)} improving the usage of TRACS both as a standalone and as a library-like module for bigger projects.
+All the modules and features we have explained in the previous section were part of the original TRACS software. From that point the software was modified and upgraded to \emph{1)}include radiation damage effects  with user defined parameters and \emph{2)} improve the usage of TRACS both as a standalone and as a library-like module for bigger projects.
 
 %All the changes made during this project were oriented to either the main goal: Implementing radiation damage into the simulations; or future extensibility of TRACS capabilities. These future oriented features will be commented briefly since they are not a fundamental part of the project and most of the information regarding them will lay under future projection or future upgrades proposal.
 
@@ -87,7 +85,7 @@ All the modules and features we have explained in the previous section were part
 
 \subsection{Modifications to TRACS}
 
-The different effects of radiation damage in the signal obtained from a silicon detector have been discussed before and we concluded that besides the increase in $V_{dep}$ and leakage current, the main effects were the loss in charge collection efficiency and the modification in the shape of the waveform due to the perturbated \neff. It is important to remember that even though we treat these effects as different, they are all the result of the Vacancy-Interstitial defects in the lattice due to particle-Si core collisions.
+The different effects of radiation damage in the signal obtained from a silicon detector have been discussed before and we concluded that besides the increase in $V_{dep}$ and leakage current, the main effects were the loss in charge collection efficiency and the modification in the shape of the waveform due to the perturbated \neff. The reader should remember that even though we treat these effects as different, they are all the result of the Vacancy-Interstitial defects in the lattice due to particle-Si core collisions.
 
 %For TRACS simulation capabilities, the increase in leakage current needs not be taken into account. This leaves only increase in $V_{dep}$, \neff modification and trapping of carrier to be implemented inside the code. The increase in $V_{dep}$ can be included in the \neff modification since $V_{dep}$ is dependant on the \neff inside the detector so that by solving the PDEs for the modified \neff one should automatically obtain the correct $V_{dep}$ value.
 
@@ -97,18 +95,16 @@ The different effects of radiation damage in the signal obtained from a silicon 
 
 %This simplifies greatly the implementation process as it is not needed to use any approximate model that would parametrise trapping and \neff modification effects as a function of the radiation fluence the silicon detector has be subject to. This models often require multiple experimental coefficients that may vary under different conditions and one might end up needing to use several different models to fully parametrise just one physical value. The approach taken in this project sits on the opposing end, rendering TRACS viable to be used as another analysis tool as well as a guessing/comparing tool.
 
-Three models for the change of \neff with fluence were included.The first one, the linear approximation, is easy to implement and has only 2 free parameters that would need adjusting or knowing beforehand depending on the use case. Since this parametrisation has given good results in modelling \neff modification in irradiated silicon detectors throughout different research studies, it will used as the most basic and easy to use and implement approximation for radiation damage.
+In TRACS three models for the change of \neff with fluence were included.The first one, the linear approximation, has only 2 free parameters that would need adjusting or knowing beforehand depending on the use case. Since this parametrisation has given good results in modelling \neff modification in irradiated silicon detectors throughout different research studies, it will used as the most basic and easy to use and implement approximation for radiation damage.
 
 The second modelling of the \neff  has already been introduced in section \ref{sec:trapEfect} and consists on 3 different areas where the carrier density is constant. 
 The third model is a combination of the two previous models. The \neff configuration is assumed to have three different zones in which it is linear with depth. This two last approximations require that restrictions are imposed in the allowed values for each zone so that continuity and derivability are ensured.
 
+In the linear approximation, continuity and derivability are guaranteed. Derivability, though not strictly necessary for current use of TRACS, has been ensured in both triple linear and triple constant approximations by means of hyperbolic tangents connecting the end of one area with the beginning of the adjacent one. Continuity in the triple constant approximation arises from these hyperbolic tangent bridges that connect smoothly one value of the \neff in one area to the vale in the next; in the triplelinear case continuity is forced. 
 
-In the linear approximation, continuity and derivability are guaranteed. Derivability, though not strictly necessary for current use of TRACS, has been ensured in both triple linear and triple constant approximations by means of hyperbolic tangents connecting the end of one area with the beginning of the adjacent one. Continuity in the triple constant approximation arises from these hyperbolic tangent bridges that connect smoothly one value of the \neff in one area to the vale in the next. 
+Trapping of charge carriers is a statistical process and as such it would require a random variable as control for each carrier with the corresponding performance penalty, specially for low trapping probabilities and high number of carriers.
 
-
-Trapping of charge carriers is a statistical process and as such cannot it shall require a random variable as control for each carrier with the corresponding performance penalty, specially for low trapping probabilities and high number of carriers.
-
-To avoid such computational overhead, we opted for the approximated implementation of the effect through the use of an exponential wrapping over the whole waveform. This approximation requires enough simulated time and enough carriers to be simulated to be relatively accurate. 
+To avoid such computational overhead, we opted for the approximated implementation of the effect through the use of an exponential wrapping over the whole waveform. The physical justification of the approximation has already been explained in section \ref{sec:signalDeg}. This approximation requires enough simulated time and enough carriers to be accurate enough.
 
 The last of the updgrades to TRACS with physical relevance for the simulations was the inclusion of electronics shaping simulation. TRACS had basic lowpass filter shaping as an option in CLI version but that was not good enough for detailed comparisons to real data. We implemented electronics shapping by convoluting the raw signal from the simulation with the amplifier transfer function. This transfer function depends  on the amplifier.
 
@@ -124,13 +120,13 @@ The \textit{TRACSInterface} class contains a simple set of methods that allows t
 
 \subsection{Implementation of TRACS upgrade}
 
-Implementation of the improvements in TRACS did not present any significant design problems due to the usage of Object Oriented programming and external flexible libraries. In the case of modified \neff implementation Fenics libraries prodive users with the option to define a custom space charge distribution to solve Poisson's equation. 
+Implementation of the improvements in TRACS did not present any significant design problems due to the usage of Object Oriented programming and external flexible libraries. In the case of modified \neff implementation Fenics libraries provide users with the option to define a custom space charge distribution to solve Poisson's equation. 
 
-By creating a new class \textit{Source} the \neff could be parametrised. Inside the class, emph{Setter} methods were also implemented so that \neff approximation and parametrisation can be modified at run-time. By having a dedicated class for \neff parametrisation TRACS can also be easily modified to include any other new parametrisation. 
+By creating a new class \textit{Source} the \neff could be parametrised. Inside the class, \emph{Setter} methods were also implemented so that \neff approximation and parametrisation can be modified at run-time. By having a dedicated class for \neff parametrisation TRACS can also be easily modified to include any other new parametrisation. 
 
-As we shown in equation \ref{eq:trapCurr} the trapping effects on the signal can be seen as an exponential wrapping of the non-trapped signal. For the implementation of the exponential wrapping of the waveform it suffices to multiply the raw values in each time step by the exponential factor at the given time. This simulates the effect of the statistical trapping and yields an exponential decrease in the output current that mimics the experimental one.
+As we showed in equation \ref{eq:trapCurr} the trapping effects on the signal can be seen as an exponential wrapping of the non-trapped signal. For the implementation of the exponential wrapping of the waveform it suffices to multiply the raw values in each time step by the exponential factor at the given time. This simulates the effect of the statistical trapping and yields an exponential decrease in the output current that mimics the experimental one.
 
-For both \neff parametrisation and trapping effects, it is needed for the user to introduce the relevant parameters. For the custom \neff effect the input data are the coordinates of the points needed to define the selected \neff parametrisation. The number of parameters needed in each case varies from 2 for the linear case to 5 for the triple constant \neff to 6 for the case of triple linear approximation. In the case of trapping effects, only one parameter is needed: \tau.
+For both \neff parametrisation and trapping effects, it is needed for the user to input the relevant parameters. For the custom \neff effect the input data are the coordinates of the points needed to define the selected \neff parametrisation. The number of parameters needed in each case varies from 2 for the linear case to 5 for the triple constant \neff to 6 for the case of triple linear approximation. In the case of trapping effects, only one parameter is needed: \tau.
 
 For the configuration file a new file \textit{Config.TRACS} was added with its own syntax that allows the parser to distinguish input values from comments. The \textit{TRACSInterface} development was done, as previously stated, on a new separate class in addition to the already present CLI and GUI so that nothing had to be change for standalone use of TRACS.
 
@@ -139,7 +135,7 @@ As well as the code and CLI, the GUI version of TRACS has also been upgraded to 
 %It is an unintended feature of TRACS that one can de-couple \neff modification and trapping effects allowing the user to explore both effects separately by simply toggling on radiation simulation and inputing a constant \neff or a very big trapping time (i.e.: effectively no trapping). 
 Other improvements to TRACS-GUI include the implementation of RC shapping capabilites for output waveforms as well as resizeable plot throgout all tabs. The last of the visual improvements to TRACS is the inclussion of the Custom N$_{eff}$ Visualization Tool which allows the user to preview the \neff configuration before starting the simulation.
 
-In summary, TRACS has been improved and upgraded to include radiation effects into the simulations with user defined \neff and trapping parameters. On top of those improvements TRACS, documentation was also improved. Flexibility was added so that now TRACS can run as an aditional library or module on a bigger piece of software.
+In summary, TRACS has been improved and upgraded to include radiation effects into the simulations with user defined \neff and trapping parameters. On top of those improvements TRACS, documentation was also extended. Flexibility was added so that now TRACS can run as an aditional library or module on a bigger piece of software.
 
 The original version of TRACS showed excellent agreement with experimental data from laboratory measurements so it is expected that the new version of TRACS be a useful and accurate tool. This accuracy will be tested in the next section, that will prove TRACS usefulness as a research tool for anyone intereseted in radiation damage in silicon detectors.
 
