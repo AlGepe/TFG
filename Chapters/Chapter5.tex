@@ -17,7 +17,7 @@ In this chapter we will present the structural design of the software as it was 
 \section{Software design} % (fold)
 \label{sec:results_and_achievements}
 
-TRACS is built and written in C++11 standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real world process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
+TRACS is built and written in C++11 standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
 
 During a typical simulation of TRACS, the program takes detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the previous step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format.
 
@@ -66,7 +66,7 @@ The other two tabs are used for carrier drifting and waveform simulation. Option
 \subsection{Approximations and limits of TRACS} % Necesito ayuda para maquillar el titulo
 \label{sec:approxTRACS}
 
-Being a fast simulator, as it is, TRACS needs to make some approximation that lower the computational requirements of the simulations. This approximations could, in principle, compromise the precision of TRACS results but it has been seen that in real case scenarios TRACS is capable of matching accurately the data\cite{TRACSCompar}.
+Being a fast simulator, as it is, TRACS needs to make some approximation that lower the computational requirements of the simulations. This approximations could, in principle, compromise the precision of TRACS results but it has been seen that in normal use case scenarios TRACS is capable of matching accurately the data\cite{TRACSCompar}.
  
 TRACS solves internally the necessary PDEs in 2D only because any planar detector can be approximated as being 2D and the computational requirements are higher with more dimensions. This means TRACS can only simulate planar detectors as it is now. Planar detectors such as microstrips and diodes are the most common type of silicon detector. However, because TRACS makes use of Fenics libraries it is possible to implement 3D detectors in the future if required.
 
@@ -106,7 +106,7 @@ Trapping of charge carriers is a statistical process and as such it would requir
 
 To avoid such computational overhead, we opted for the approximated implementation of the effect through the use of an exponential wrapping over the whole waveform. The physical justification of the approximation has already been explained in section \ref{sec:signalDeg}. This approximation requires enough simulated time and enough carriers to be accurate enough.
 
-The last of the updgrades to TRACS with physical relevance for the simulations was the inclusion of electronics shaping simulation. TRACS had basic lowpass filter shaping as an option in CLI version but that was not good enough for detailed comparisons to real data. We implemented electronics shapping by convoluting the raw signal from the simulation with the amplifier transfer function. This transfer function depends  on the amplifier.
+The last of the updgrades to TRACS with physical relevance for the simulations was the inclusion of electronics shaping simulation. TRACS had basic lowpass filter shaping as an option in CLI version but that was not good enough for detailed comparisons to measured data. We implemented electronics shapping by convoluting the raw signal from the simulation with the amplifier transfer function. This transfer function depends  on the amplifier.
 
 % On top of the improvements we have mentioned, that were oriented mainly to include radiation damage into the simulations, some other features have been implemented with focus on user experience or future development of TRACS. These features are of less importances for the research project but equally important for TRACS and its future projection. 
 
