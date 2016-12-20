@@ -29,7 +29,7 @@ This type of measurement allows to obtain information about the electric field b
 
 \section{e-TCT} % (fold)
 
-To have a much better control on carrier placement inside the detector, a new way of illuminating a silicon was developed. The laser is moved to the side of the detector being shot on the edge of the detector (parallel to the implants and ohmic contacts) hence the '$edge$' naming convention. To increase the penetration depth of the light shot at the detector an infrared laser with wavelength around XXXnm is typically used. This configuration allows the charge to be created deeply inside the detector in a thick-line volume corresponding to the laser beam.
+To have a much better control on carrier placement inside the detector, a new way of illuminating a silicon was developed. The laser is moved to the side of the detector being shot on the edge of the detector (parallel to the implants and ohmic contacts) hence the '$edge$' naming convention. To increase the penetration depth of the light shot at the detector an infrared laser with wavelength around 1060nm is typically used. This configuration allows the charge to be created deeply inside the detector in a thick-line volume corresponding to the laser beam.
 
 %In terms of the created carrier pairs, they drift in opposite directions but due to sign difference in electric charge, both current contributions add up. The final signal collected in the circuit will have too components (electrons and holes) that will give away information about the electric field in both directions. Some times it might be difficult to distinguish each component since they are both superimposed and each carrier `sees' a different field and has a different mobility. 
 Typical edge-TCT scans are performed by sampling the whole detector height in steps of a couple microns and repeating this process for different \vias values.
@@ -50,3 +50,24 @@ Since the absorption (and hence carrier generation) is proportional to the inten
  This small volume, often called voxel, is a few microns in any direction of space allowing for 3D movement throughout the detector while maintaining good spacial resolution. Having a volume of a few cubic microns allows for very fine characterisation of the detectors and makes possible the creation of accurate 3D maps of detector properties that permit to see local imperfections or strange behaviours after irradiation.
 
  The TPA-TCT technique is by far the most accurate one but it is still in development phase. For the moment various analysis have been performed in the laboratory using this technique with good results. Even though it is a new technique, TRACS is able to simulate such measurements provided with the correct charge carrier distribution.
+
+ \section{Experimental setup for (red) TCT measurement} % (fold)
+ \label{sec:TCTsetup}
+
+The setup that will be described is specific for the TCT+ setup in the SSD laboratory at CERN. However, most of the TCT capable setups share most features in common so there should not be any significant difference between TCT+ setups in other laboratories. 
+
+Only the setup for red-TCT measurements will be described for reason that will e apparent in chapter \ref{sec:TRACSvalidity}. Other TCT techniques are performed in similar manner with the main difference being the laser placement and movement.
+
+% Equivalent circuit and SHORT expanation of material used
+
+% Extra considerations (temperature, alignment, isolation(light and electricity)\ldots)
+
+The whole setup is controlled via a custom LabView\copyright\cite{labview} program that also allows for remote operation and measurement. The same software takes care of saving and storing the data in the corresponding format on an ASCII file that is later analised. The data analysis procedure is performed using software specially developed in the SSD group for this purpose and that can can calculate and plot numeros physical parameters of interest such as charge collection efficiency, collection time\ldots
+
+
+
+
+
+
+ 
+ % section Experimental setup for (red) TCT measurement (end)
