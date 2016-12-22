@@ -9,14 +9,14 @@ In this chapter we summarise the most important mechanisms of radiation damage. 
 
 \section{Damaging the lattice}% No definitivo
 
-When a particle transversing the silicon detector undergoes a non-ionising interaction one or more atoms get knocked-out from their equilibrium position in the lattice, disrupting the ordered structure of silicon. If the atom does not return to the equilibrium position, and Interstitial-Vacancy (I-V) defect is created. The term Interstitial refers to the knocked-off atom missplaced in the lattice and the Vacancy refers to the empty place that it leaves behind as shown in Figure \ref{fig:I-V}. This type of defect alters the ordered structure of the lattice and creates new energy. The mechanisms by which the I-V defects degrade the performance of the detector and its practical consequences will be discussed in the next sections.
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{chap3_defects.png}
-	\label{fig:I-V}
-	\caption{Interstitial (right) and Vacancy (left) lattice defects are illustrated here. This defects are be created inside silicon detectors after they have been irradiated.}
+	\caption{Interstitial (right) and Vacancy (left) lattice defects are illustrated here. This defects are be created inside silicon detectors after irradiation.}
+	\label{fig:IV}
 \end{figure}
+
+When a particle transversing the silicon detector undergoes a non-ionising interaction one or more atoms get knocked-out from their equilibrium position in the lattice, disrupting the ordered structure of silicon. If the atom does not return to the equilibrium position, and Interstitial-Vacancy (I-V) defect is created. The term Interstitial refers to the knocked-off atom missplaced in the lattice and the Vacancy refers to the empty place that it leaves behind as shown in Figure \ref{fig:IV}. This type of defect alters the ordered structure of the lattice and creates new energy. The mechanisms by which the I-V defects degrade the performance of the detector and its practical consequences will be discussed in the next sections.
 
 %When a particle goes through a silicon detector it can ionise the material and move electrons out of the valence band into the conduction band generating an electrical signal than be read, as we have previously discussed. Another possibility is that the particle knocks off one or more of the silicon atoms that compose the lattice. In this case the atom might return to its original position if the momentum transfer is small dissipating the extra energy via thermal vibrations or it might get knock off completely from its original position. In the latter case the lattice presents now a defect that will influence its properties. For this section we will only focus on the types of defects and their evolution, leaving their effects to the next two sections. 
 
@@ -49,17 +49,19 @@ The standard procedure followed by researchers includes an intentional annealing
 
 The defects induced by radiation only affect the drift and collection of the $e-h$ pairs. The I-V defects create the so called $deep-levels$ that can trap and hold charge carriers for times longer than the typical collection times in silicon detectors. The result is a net loss in charge collection efficiency as well as a modified \neff profile.
 
-To explain why the \neff gets modified after irradiation, we will follow the argument presented by V.Eremin\cite{Eremin}. The current density of $e$ or $h$ ($j_i(z)$), in a fully depleted silicon detector, is not a constant but has a linear dependence with thickness ($z$), as shown  in figure \ref{fig:Eremin}\emph{a)}. The concentration of carriers ($n_i(z)$) is proportional to the current $j_i(z)$, so $n_i(z)$ is also linear with $z$. After enough radiation the defects and their correspondent deep levels can be considered uniformly distributed throughout the detector. The amount of carriers trapped can be considered proportional to their concentration. Taking the charge sign into account the end result is a linear dependence of space charge distribution with $z$ (Figure \ref{fig:Eremin}\emph{b)}. For a more complete description of this argumentation and its validity the reader is referred to the bibliography.
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{chap3_erem.png}
-	\label{fig:Eremin}
+	\includegraphics[width=0.8\textwidth]{chap3_erem.jpg}
 	\caption{Interstitial (right) and Vacancy (left) lattice defects are illustrated here. This defects are be created inside silicon detectors after they have been irradiated.}
+	\label{fig:Eremin}
 \end{figure}
+
+To explain why the \neff gets modified after irradiation, we will follow the argument presented by V.Eremin\cite{Eremin}. The current density of $e$ or $h$ ($j_i(z)$), in a fully depleted silicon detector, is not a constant but has a linear dependence with thickness ($z$), as shown  in figure \ref{fig:Eremin}\emph{a}. The concentration of carriers ($n_i(z)$) is proportional to the current $j_i(z)$, so $n_i(z)$ is also linear with $z$. After enough radiation the defects and their correspondent deep levels can be considered uniformly distributed throughout the detector. The amount of carriers trapped can be considered proportional to their concentration. Taking the charge sign into account the end result is a linear dependence of space charge distribution with $z$ (Figure \ref{fig:Eremin}\emph{b}. For a more complete description of this argumentation and its validity the reader is referred to the bibliography.
+
+
 % Consecuences of a modified Neff (leakage current, higher Vdep, type inversion, DP & DJ)
 
-One of the consequences of having a non-constant \neff configuration is that the resulting electric field inside the detector gets modified. In the linear case mentioned above a parabolic electric field appears (see Figure \ref{fig:Eremin}\emph{c)}) giving rise to a characteristic \emph{double peak} (DP) shape of the transient waveforms. Another consequence of not having a constant \neff is the appearance of a second $p-n$ junction at the end of the detector creating the double junction (DJ) effect. The apparition of the DJ means that in a detector not fully depleted both ends remain sensitive to radiation.
+One of the consequences of having a non-constant \neff configuration is that the resulting electric field inside the detector gets modified. In the linear case mentioned above a parabolic electric field appears (see Figure \ref{fig:Eremin}\emph{c}) giving rise to a characteristic \emph{double peak} (DP) shape of the transient waveforms. Another consequence of not having a constant \neff is the appearance of a second $p-n$ junction at the end of the detector creating the double junction (DJ) effect. The apparition of the DJ means that in a detector not fully depleted both ends remain sensitive to radiation.
 
 %Other effects of the modified \neff of lesser importance for this project are the increase in leakage current, a higher \vias needed for depleting the full detector volumen, and more exotic processes such as type inversion. % Deberia hablar algo mas de type inversion? decir lo que es?
 
