@@ -1,23 +1,30 @@
-\chapter{Characterisation techniques (red, edge and TPA TCT)}
+\chapter{Characterisation techniques (red and edge TCT)}
+%\chapter{Characterisation techniques (red, edge and TPA TCT)}
 % Optical measurements
 \label{chap:TCT}
 
 Characterisation of detectors both before and after irradiation is of great importance to understand the effects of radiation in silicon detectors and for trying to counteract them. Typical measurements performed include I/V and C/V curves measurements as well as light illumination using Transient Current Techniques (TCT) in any of its variants. 
 
-% The I/V and C/V measurements are purely electrical measurements that do not measure detector specific parameters. Curves of Intensity versus Voltage and Capacitance versus Voltage are good indicatives of the state of the silicon detector as well as providing with a precise measurement of $V_{dep}$ that can be later crossed check with illumination techniques. I/V and C/V measurements require simpler setups that TCT measurements but fall short in detector specific features such as detection efficiency and also information about the field inside the silicon device.
-
 The I/V and C/V are purely electrical measurements in which intensity (or capacitance) is recorded at different voltages. From the corresponding curves different detector parameters such as depletion voltage, breakdown voltage\ldots can be calculated. 
 
 The most common optical techniques are TCT in which the silicon detector is illuminated using laser. The resulting current generated due to the drift of charge carriers inside the detector is recorded over time. This \textit{transient} currents or waveforms are later analysed and can provide information about many aspects of the detector. As with the case of C/V and I/V measurements both can be done before and after irradiation in the same manner.
 
-In this work I/V and C/V measurements will not be considered in detail and focus will be placed on TCT measurements since these are the type of measurements that TRACS simulation software is able to reproduce. In the following sections we will explain the three main TCT techniques that are currently performed as TCT silicon detector characterisation, namely red (or normal) TCT, edge-TCT and Two Photon Absorption (TPA) TCT. All of them share the same basic principles of illumination and signal recording but differ in key aspects that make them more suitable for characterising one type of detector or measuring one property. 
+In this work I/V and C/V measurements will not be considered in detail and focus will be placed on TCT measurements since these are the type of measurements that TRACS simulation software is able to reproduce. In the following sections we will explain the three main TCT techniques that are currently performed as TCT silicon detector characterisation, namely red (or normal) TCT and edge-TCT TCT. All of them share the same basic principles of illumination and signal recording but differ in key aspects that make them more suitable for characterising one type of detector or measuring one property. 
+%In this work I/V and C/V measurements will not be considered in detail and focus will be placed on TCT measurements since these are the type of measurements that TRACS simulation software is able to reproduce. In the following sections we will explain the three main TCT techniques that are currently performed as TCT silicon detector characterisation, namely red (or normal) TCT, edge-TCT and Two Photon Absorption (TPA) TCT. All of them share the same basic principles of illumination and signal recording but differ in key aspects that make them more suitable for characterising one type of detector or measuring one property. 
 
 \section{red-TCT} % (fold)
 \label{sec:redTCT}
 
 The measuring procedure for all TCT measurements is fairly similar, the main difference being the wavelength of the laser used and how the laser is point at the detector. Since silicon absorption coefficient depends on the wavelength of the light it follows that different laser frequencies will have different penetration and will yield substantially different results. All this techniques exploit the fact that photons with enough energy can create electron-hole pair that will drift inside the detector generating an electrical current. 
 
-The most basic of TCT techniques is the so-called red-TCT. This kind of TCT measurements consist on illuminating the top or bottom part of the detector with a red laser with a typical wavelength around 660nm. The absorption of these photons is a first order process since the energy of the incident photons is bigger than the minimum energy required to create an electron-hole pair. Silicon's absorption for red light is high and hence, all the photons are absorbed within a few $\mu m$ from the edge. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\textwidth]{chap4_redTCT.png}
+	\caption{Interstitial (right) and Vacancy (left) lattice defects are illustrated here. This defects are be created inside silicon detectors after they have been irradiated.}
+	\label{fig:redTCT}
+\end{figure}
+
+The most basic of TCT techniques is the so-called red-TCT. This kind of TCT measurements consist on illuminating the top or bottom part of the detector with a red laser with a typical wavelength around 660nm as shown in Figure \ref{fig:redTCT}. The absorption of these photons is a first order process since the energy of the incident photons is bigger than the minimum energy required to create an electron-hole pair. Silicon's absorption for red light is high and hence, all the photons are absorbed within a few $\mu m$ from the edge. 
 
 All the electron-hole pairs are created in a small region very close to one of the collection electrodes. Taking top-TCT of a n-on-p diode as example, the laser is shot over the implant and barely reaches the bulk. After the charge carriers are created, the electrons are collected in less than a nanosecond contributing to signal with just a very high and narrow spike in current, usually masked off by the electronics(Bandwidth ~2.6GHz). The holes, on the other hand, drift throughout the whole bulk of the detector leaving a much longer signal. When the laser is shot on the bottom of the detector the process is inverted with holes being quickly collected and electrons drifting through the whole detector leaving the longer signal imprint.
 
@@ -29,9 +36,18 @@ This type of measurement allows to obtain information about the electric field b
 
 \section{e-TCT} % (fold)
 
-To have a much better control on carrier placement inside the detector, a new way of illuminating a silicon was developed. The laser is moved to the side of the detector being shot on the edge of the detector (parallel to the implants and ohmic contacts) hence the '$edge$' naming convention. To increase the penetration depth of the light shot at the detector an infrared laser with wavelength around 1060nm is typically used. 
+
+To have a much better control on carrier placement inside the detector, a new way of illuminating a silicon was developed. The laser is moved to the side of the detector being shot on the edge of the detector (parallel to the implants and ohmic contacts) hence the '$edge$' naming convention. To increase the penetration depth of the light shot at the detector an infrared laser with wavelength around 1060nm is typically used. An schematic view of this configuration can be seen in Figure \ref{fig:eTCT}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{chap4_eTCT.png}
+	\caption{Interstitial (right) and Vacancy (left) lattice defects are illustrated here. This defects are be created inside silicon detectors after they have been irradiated.}
+	\label{fig:eTCT}
+\end{figure}
 
 %In terms of the created carrier pairs, they drift in opposite directions but due to sign difference in electric charge, both current contributions add up. The final signal collected in the circuit will have too components (electrons and holes) that will give away information about the electric field in both directions. Some times it might be difficult to distinguish each component since they are both superimposed and each carrier `sees' a different field and has a different mobility. 
+
 Typical edge-TCT scans are performed by sampling the whole detector height in steps of a couple microns and repeating this process for different \vias values.
 
 Using this technique one can obtain the same results as using the red-TCT techniques with the additional benefit of being able to sample different parts of the detector. One can also measure the width of the depleted area for a given voltage by performing an edge-TCT scan and measuring where the total 
