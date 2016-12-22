@@ -70,7 +70,7 @@ Being a fast simulator, as it is, TRACS needs to make some approximation that lo
  
 TRACS solves internally the necessary PDEs in 2D only because any planar detector can be approximated as being 2D and the computational requirements are higher with more dimensions. This means TRACS can only simulate planar detectors as it is now. Planar detectors such as microstrips and diodes are the most common type of silicon detector. However, because TRACS makes use of Fenics libraries it is possible to implement 3D detectors in the future if required.
 
-Another approximation made by TRACS is neglecting any electron-electron (or hole-hole) interactions inside the detector. It is a justified since the \vec{E} inside the detector are many orders of magnitude greater than the \vec{E} due to all the electrons. 
+Another approximation made by TRACS is neglecting any electron-electron (or hole-hole) interactions inside the detector. It is a justified since the \overrightarrow {E} inside the detector are many orders of magnitude greater than the \overrightarrow {E} due to all the electrons. 
 
 The thermal diffusion of charge carriers inside the detector is also neglected in TRACS. The thermal diffusion is random for every carrier so the total contribution to the $I(t)$ due to diffusion process is negligible. A consequence of this simplification is that TRACS is only accurate when simulating fully depleted detectors. 
 
