@@ -93,7 +93,7 @@ entirely on one side of the junction ($x_n >> x_p$).
 
 With this configuration the width of the depleted zone ($w$) is $w \approx x_p$.
 When Poisson's equation is solved for $\rho = const$ the resulting electric
-$\nabla \phi = -\vec{E}$ field is linear with the distance to the $p-n$
+$\nabla \phi = -\overrightarrow {E}$ field is linear with the distance to the $p-n$
 junction. In a typical detector configuration (where $w \approx x_{p/n}$) this
 means there is an electric field across the whole active volume of the detector
 (depleted area) in which any carrier created will move by drift. 
@@ -153,11 +153,11 @@ is more important as it comes closer. Mathematically, the expression for the
 induced current is
 
 \begin{equation}
-	i = q \cdot \vec{v} \cdot \vec{E_{W}}
+	i = q \cdot \overrightarrow {v} \cdot \overrightarrow {E_{W}}
 	\label{eq:ramo} 
 \end{equation} 
 
-where $q$ is the charge, $\vec{v}$ the drift velocity and $\vecE_{W}$ the weighting
+where $q$ is the charge, $\overrightarrow {v}$ the drift velocity and $\overrightarrow E_{W}$ the weighting
 field. In 1D the vectors are replaced by their magnitudes.
 
 For a system where more than one particle is moving and thus inducing current in
@@ -167,7 +167,7 @@ case for electrons and holes, drifting inside the silicon volume, then equation
 (\ref{eq:ramo}) can be re-written as:
 
 \begin{equation}
-	I = q \cdot \sum_{n=1}^{N} \vec{v_n}\vec{E_{W}} 	\label{eq:ramoTot} 
+	I = q \cdot \sum_{n=1}^{N} \overrightarrow {v_n}\overrightarrow {E_{W}} 	\label{eq:ramoTot} 
 \end{equation} 
 
 Note that though the charge for electrons and holes is opposite, they move as
@@ -183,7 +183,7 @@ hole mobilities ($ \mu_h $) are taken to be referred to the valence band
 by default. Putting all this together we arrive at 
 
 \begin{equation}
-	I = q \cdot \sum_{n=1}^{N} \mu_n(E) \vec{E} \cdot \vec{E_{W}} 
+	I = q \cdot \sum_{n=1}^{N} \mu_n(E) \overrightarrow {E} \cdot \overrightarrow {E_{W}} 
 \label{eq:ramoMob}
 \end{equation}
 
