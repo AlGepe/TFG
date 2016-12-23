@@ -2,7 +2,7 @@
 \label{sec:rad}
 % I haven't talked about leakage current and I most certainly should
 
-When a particle goes through a silicon detector, it can loose energy via ionization, which is a reversible process because the electrons extracted from the atoms will end up recombining. The particle can also lose energy via non-ionizing interactions, where the particle interacts with the Silicon atoms or with the dopant atoms. The effect is detrimental for the detector and leads to a reduction of the collected charge, amongst other macroscopical effects. It is important to understand these changes and have a parametrisation of the degradation. Understanding these defects is fundamental for designing radiation-hard detectors.
+When a particle goes through a silicon detector, it can loose energy via ionisation, which is a reversible process because the electrons extracted from the atoms will end up recombining. The particle can also lose energy via non-ionising interactions, where the particle interacts with the Silicon atoms or with the dopant atoms. The effect is detrimental for the detector and leads to a reduction of the collected charge, amongst other macroscopical effects. It is important to understand these changes and have a parametrisation of the degradation. Understanding these defects is fundamental for designing radiation-hard detectors.
 
 In this chapter we summarise the most important mechanisms of radiation damage. One of the key points of the project was to implement radiation damage on the TRACS simulator.
 
@@ -16,7 +16,7 @@ In this chapter we summarise the most important mechanisms of radiation damage. 
 	\label{fig:IV}
 \end{figure}
 
-When a particle transversing the silicon detector undergoes a non-ionising interaction one or more atoms get knocked-out from their equilibrium position in the lattice, disrupting the ordered structure of silicon. If the atom does not return to the equilibrium position, and Interstitial-Vacancy (I-V) defect is created. The term Interstitial refers to the knocked-off atom missplaced in the lattice and the Vacancy refers to the empty place that it leaves behind as shown in Figure \ref{fig:IV}. This type of defect alters the ordered structure of the lattice and creates new energy. The mechanisms by which the I-V defects degrade the performance of the detector and its practical consequences will be discussed in the next sections.
+When a particle transversing the silicon detector undergoes a non-ionising interaction one or more atoms get knocked-out from their equilibrium position in the lattice, disrupting the ordered structure of silicon. If the atom does not return to the equilibrium position, and Interstitial-Vacancy (I-V) defect is created. The term Interstitial refers to the knocked-off atom misplaced in the lattice and the Vacancy refers to the empty place that it leaves behind as shown in Figure \ref{fig:IV}. This type of defect alters the ordered structure of the lattice and creates new energy. The mechanisms by which the I-V defects degrade the performance of the detector and its practical consequences will be discussed in the next sections.
 
 %When a particle goes through a silicon detector it can ionise the material and move electrons out of the valence band into the conduction band generating an electrical signal than be read, as we have previously discussed. Another possibility is that the particle knocks off one or more of the silicon atoms that compose the lattice. In this case the atom might return to its original position if the momentum transfer is small dissipating the extra energy via thermal vibrations or it might get knock off completely from its original position. In the latter case the lattice presents now a defect that will influence its properties. For this section we will only focus on the types of defects and their evolution, leaving their effects to the next two sections. 
 
@@ -67,9 +67,9 @@ One of the consequences of having a non-constant \neff configuration is that the
 
 % EXPLAIN WHY IT MIGHT NOT BE LINEAR but something more exotic (link with TRACS capabilities)
 
-So far it has only been considered that the modification of the \neff due to radiation-induced defects gives rise to a linear \neff inside the detector. However, this might not be always the case, as it has been proposed in more recent publications\cite{KramVertex}. Analysis performed using edge-TCT techniques suggest that the \neff configuration might have three different regions in which its value remains constant. This parametrization will be referred to as \emph{triconstant} and can also explain the DJ and DP effects seen experimentally. As it will be explained in detail later, both linear and triconstant parametrisations have been implemented into TRACS as well as a third parametrisation consisting of three linear regions.  
+So far it has only been considered that the modification of the \neff due to radiation-induced defects gives rise to a linear \neff inside the detector. However, this might not be always the case, as it has been proposed in more recent publications\cite{KramVertex}. Analysis performed using edge-TCT techniques suggest that the \neff configuration might have three different regions in which its value remains constant. This parametrisation will be referred to as \emph{triconstant} and can also explain the DJ and DP effects seen experimentally. As it will be explained in detail later, both linear and triconstant parametrisations have been implemented into TRACS as well as a third parametrisation consisting of three linear regions.  
 
-On top of the \neff modification, the deep levels induced by radiation have also an impact on signal collected from the detector. When charge carriers drift through the irradiated volume they may get trapped in a radiation-induced defect and remain there for as long as several miliseconds. This is much longer than the collection time (of the order of tens of nanoseconds) so they are effectively lost. As a result, the waveform shape gets distorded (as it will be explained in the following section) and the charge collected decreases worsening the performance of the detector.
+On top of the \neff modification, the deep levels induced by radiation have also an impact on signal collected from the detector. When charge carriers drift through the irradiated volume they may get trapped in a radiation-induced defect and remain there for as long as several miliseconds. This is much longer than the collection time (of the order of tens of nanoseconds) so they are effectively lost. As a result, the waveform shape gets distorted (as it will be explained in the following section) and the charge collected decreases worsening the performance of the detector.
 
 \section{Signal degradation} % No definitivo
 \label{sec:signalDeg}
@@ -84,7 +84,7 @@ On top of the \neff modification, the deep levels induced by radiation have also
 
 The effects of radiation in detector performance can be observed both in terms of the total collected charge and the shape of the transient waveforms. The modified \neff distribution inside the detector has an effect on the shape of the waveforms while the effects of trapping centers can be seen both in the waveforms and in the total collected charge.
 
-It has been explained in section \ref{sec:Ramo} that the $I(t)$ profile of the collected signal from the detector depends on the \overrightarrow {E} inside of it. It then follows that a modified \neff (and consequently a modified \overrightarrow {E}) will have an effect in the collected signal and might show a double peak (DP) due to the previously mentioned DJ effect. The collection time might also be affected for the same reason.
+It has been explained in section \ref{sec:Ramo} that the  $ I (t) $ profile of the collected signal from the detector depends on the $\overrightarrow E $ inside of it. It then follows that a modified \neff  (and consequently a modified  $\overrightarrow E$ ) will have an effect in the collected signal and might show a double peak (DP) due to the previously mentioned DJ effect. The collection time might also be affected for the same reason.
 
 For the trapping effects, the probability that a carrier drifting inside the silicon gets trapped in the radiation-induced deep levels after a time $dt$ is
 
@@ -101,7 +101,7 @@ where $N_0 = N(\Delta t = 0)$ the initial number of carriers generated in the de
  \label{eq:trapCurr}
 \end{equation}
 
-where $I_0(t)$ is the total current that would be read if there were no trapped carriers. \bold{comento algo sobre la aproximacion? por ejemplo su validez?}
+where $ I_{0}(t)$ is the total current that would be read if there were no trapped carriers. \textbf{comento algo sobre la aproximacion? por ejemplo su validez?}
 
 \textbf{\emph{Duda}}
 (opcion 1)>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -113,5 +113,5 @@ This last equation has little interest from a experimental point of view but it 
 
 Fin opciones<<<<<<<<<<<<<<<<<<<<<<<<<<
 
-In summary, the net result of trapping centers is to reduce the charge collected; the effect can also be seen in the transients waveform.
+In summary, the net result of trapping centres is to reduce the charge collected; the effect can also be seen in the transients waveform.
 

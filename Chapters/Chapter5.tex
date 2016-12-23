@@ -15,7 +15,7 @@ The reasoning behind the decision of using TRACS was based on two principal argu
 In this chapter we will present the structural design of the software as it was before the project started including the different parts in which it is divided. We will also present the changes and upgrades performed with particular emphasis on the implementation of radiation damage. Lastly we shall comment briefly on where the software stands now, after the upgrades, and what future improvements could be made.
 
 \section{Software design} % (fold)
-\label{sec:results_and_achievements}
+\label{sec:softDesign}
 
 TRACS is built and written in C++11 standard and makes use of Fenics and Boost libraries for calculations and Qt and VTK for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
 
@@ -70,12 +70,12 @@ Being a fast simulator, as it is, TRACS needs to make some approximation that lo
  
 TRACS solves internally the necessary PDEs in 2D only because any planar detector can be approximated as being 2D and the computational requirements are higher with more dimensions. This means TRACS can only simulate planar detectors as it is now. Planar detectors such as microstrips and diodes are the most common type of silicon detector. However, because TRACS makes use of Fenics libraries it is possible to implement 3D detectors in the future if required.
 
-Another approximation made by TRACS is neglecting any electron-electron (or hole-hole) interactions inside the detector. It is a justified since the \overrightarrow {E} inside the detector are many orders of magnitude greater than the \overrightarrow {E} due to all the electrons. 
+Another approximation made by TRACS is neglecting any electron-electron (or hole-hole) interactions inside the detector. It is a justified since the $\overrightarrow E$ inside the detector are many orders of magnitude greater than the $\overrightarrow E$ due to all the electrons.
 
 The thermal diffusion of charge carriers inside the detector is also neglected in TRACS. The thermal diffusion is random for every carrier so the total contribution to the $I(t)$ due to diffusion process is negligible. A consequence of this simplification is that TRACS is only accurate when simulating fully depleted detectors. 
 
 \section{The development phase of TRACS upgrade} % (fold)
-\label{sec:werk}
+\label{sec:devTRACS}
 
 All the modules and features we have explained in the previous section were part of the original TRACS software. From that point the software was modified and upgraded to \emph{1)}include radiation damage effects  with user defined parameters and \emph{2)} improve the usage of TRACS both as a standalone and as a library-like module for bigger projects.
 
@@ -126,7 +126,7 @@ By creating a new class \textit{Source} the \neff could be parametrised. Inside 
 
 As we showed in equation \ref{eq:trapCurr} the trapping effects on the signal can be seen as an exponential wrapping of the non-trapped signal. For the implementation of the exponential wrapping of the waveform it suffices to multiply the raw values in each time step by the exponential factor at the given time. This simulates the effect of the statistical trapping and yields an exponential decrease in the output current that mimics the experimental one.
 
-For both \neff parametrisation and trapping effects, it is needed for the user to input the relevant parameters. For the custom \neff effect the input data are the coordinates of the points needed to define the selected \neff parametrisation. The number of parameters needed in each case varies from 2 for the linear case to 5 for the triple constant \neff to 6 for the case of triple linear approximation. In the case of trapping effects, only one parameter is needed: \tau.
+For both \neff parametrisation and trapping effects, it is needed for the user to input the relevant parameters. For the custom \neff effect the input data are the coordinates of the points needed to define the selected \neff parametrisation. The number of parameters needed in each case varies from 2 for the linear case to 5 for the triple constant \neff to 6 for the case of triple linear approximation. In the case of trapping effects, only one parameter is needed: $ \tau $.
 
 For the configuration file a new file \textit{Config.TRACS} was added with its own syntax that allows the parser to distinguish input values from comments. The \textit{TRACSInterface} development was done, as previously stated, on a new separate class in addition to the already present CLI and GUI so that nothing had to be change for standalone use of TRACS.
 
