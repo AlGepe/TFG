@@ -9,7 +9,7 @@ TRACS is able to reproduce any kind of TCT measurement provided the carrier dist
 
 It is important to note that TRACS needs to be given between 3 and 7 different parameters to perform a correct simulation of an irradiated silicon detector. This complexity calls for automated fitting software that is planned to be developed but is not available at the time of writing this project.
 
-It is for this reason that comparison with measurements will only be performed with one detector and using only one technique. Parameters will be optimised manually by trial-and-error. The results of such manual fit are not expected to be quantitatively accurate but only to reproduce qualitatively the measuremetns. The simulation-measurement comparison will only attest TRACS validity but not TRACS accuracy.
+It is for this reason that comparison with measurements will only be performed with one detector and using only one technique. Parameters will be optimised manually by trial-and-error. The parametrisation obtained will be considered as an effective parameter set that describes the data. The simulation-measurement comparison will only attest TRACS validity but not TRACS accuracy.
 
 The detector used was a diode previously irradiated to $10^{15} neq$. It has a  1cmx1cm surface with 300 $\mu$m width with a structure similar to that explained in section \ref{sec:detConfig}. The diode was also subject to the standard annealing process after irradiation and stored in a fridge to ensure constant low temperatures and prevent radiation effects to evolve over time. 
 
@@ -17,9 +17,9 @@ The detector used was a diode previously irradiated to $10^{15} neq$. It has a  
 \section{Experimental procedure} % (fold)
 \label{sec:ExpProc}
 
-For the comparison between TRACS and published simulations the published simulations and measurements were digitalised by means of an online tool \cite{digitiser}. Then simulations were performed using TRACS with the same parameters as in the reference. Comparison of both sets of transients will be presented.
+For the comparison between TRACS and published simulations the published simulations and measurements were digitalised by means of an on-line tool \cite{digitiser}. Then simulations were performed using TRACS with the same parameters as in the reference. Comparison of both sets of transients will be presented.
 
-The setup used for the red-TCT measurements was the one described in section \ref{sec:TCTsetup}. Using the bottom-TCT configuration a voltage scan was performed recording the transients generated with bias voltage ranging from 0V to 140V in steps of 10V. The measurements were performed with the detector at fixed temperature T = 273K. 
+The setup used for the red-TCT measurements was the one described in section \ref{sec:TCTsetup}. Using the bottom-TCT configuration a voltage scan was performed recording the transients generated with bias voltage ranging from 0V to 140V in steps of 10V. The measurements were performed with the detector at fixed temperature T = 170K ||||| \emph{He estado mirando y es la temperatura que sale en los raw data sacados de TCT+ en txt. El nitrogeno te lleva hasta ~77K = -195C}. 
 
 % MOAR DATA?
 
@@ -27,15 +27,13 @@ The setup used for the red-TCT measurements was the one described in section \re
 \section{Results and comparison} % (fold)
 \label{sec:comparison}
 
-Comparison will be presented in two different manners. First a comparison of each set of data (measurements and simulations) will be presented in separated plots. This will illustrate similarities in the trends followed by the transients when \vias is increased. A few sample transients will be selected for direct comparison between measurements and simulations. 
+For comparison with TCT+ measurements, data will be presented in two different manners. First a comparison of each set of data (measurements and simulations) will be presented in separated plots. This will illustrate similarities in the trends followed by the transients when \vias is increased. A few sample transients will be selected for direct comparison. 
 
-Simulation and measurements will be plotted together with different plots for each of the selected voltages. This will allow to compare the specific features of the transients and establish the agreement between simulations and measurements. The data has been normalised to the maximum value of the histograms. In this way the direct comparison is easier and the intensities of the laser are factores out of it.  
+Simulation and measurements will be plotted together with different plots for each of the selected voltages. This will allow to compare the specific features of the transients and establish the agreement between simulations and measurements. The data has been normalised to the maximum value of the histograms. In this way the direct comparison is easier and the intensities of the laser are factored out of it. Comparison with published data will also be presented in the same manner.
 
 \subsection{Comparison between TRACS and already existing simulations}
 
-To compare TRACS to other simulations data from \cite{Pholsen} will be used. In this doctoral thesis, the \neff is parametrised as a linear function of depth. Since the raw data is not published, it was needed to digitalise the plots published in the reference. 
-
-Transients from \cite{Pholsen} also include measured data that supports the validity of the simulation presented there. To reproduce the measurements we used a linear parametrisarion.
+To compare TRACS to published data, measurements from \cite{Pholsen} will be used. In this doctoral thesis, the \neff is parametrised as a linear function of depth; we used the same parametrisation to perform the simulations. Since the raw data is not published, it was needed to digitise the plots published in the reference.
 %
 %\begin{figure}[H]
 	%\centering
@@ -44,7 +42,7 @@ Transients from \cite{Pholsen} also include measured data that supports the vali
 	%\caption{Electric field inside the diode as a function of depth. Simulations from \cite{Pholsen} and TRACS are plotted together for comparison. Agreement between both simulations is good as expected.}
 %\end{figure}
 
-The transients presented in the reference compared with TRACS simulations for the same parameters (see Figure \ref{fig:PholsenTransient}.  The reader should note that the trapping simulation is different between both simulators with TRACS having a constant $\tau$ whilst the reference uses a field-dependant $\tau$. Results are therefore expected to not be the same but compatible.
+The transients from the reference are compared with TRACS simulations in Figure \ref{fig:PholsenTransient}.  The reader should note that the trapping simulation is different between both simulators with TRACS having a constant $\tau$ while the reference uses a field-dependant $\tau$. Results are therefore expected to not be the same but compatible.
 
 \begin{figure}[H]
 	\centering
@@ -58,7 +56,7 @@ The transients presented in the reference compared with TRACS simulations for th
 
 %Deberia haber comentado en la parte de TRACS sobre que TRACS no simula difusion?
 
-In order to reproduce the transients obtained in the laboratory the trial-and-error method was performed manually. The results presented in this section are considered to be a good representation of the measured detector but not a perfect match. The chosen \neff parametrisation was the Trilinear form. A table with the 8 defining values for the chosen \neff are presented below together with a plot of the \neff distribution as a function of depth. Trapping constant was chosen to be: $\tau = 5 ns$
+In order to reproduce the transients obtained using the TCT+ setup the trial-and-error method was performed manually. The results presented in this section are considered to be a good representation of the measured detector but not a perfect match. The chosen \neff parametrisation was the Trilinear form. A table with the 8 defining values for the chosen \neff are presented in Figure \ref{fig:TRACSparam} together with a plot of the \neff distribution as a function of depth. Trapping constant was chosen to be: $\tau = 4 ns$
 
 \begin{centering}
 \begin{tabular}{c}
