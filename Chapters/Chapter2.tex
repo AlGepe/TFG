@@ -97,11 +97,11 @@ remain neutral which means the total amount of charge has to be equal on both
 sides. This leads to a the mass action law, described as \[N_A x_p = N_D x_n\] 
 For silicon particle detectors, one of the two sides is doped higher with
 respect to the other (e.g.: $N_A >> N_D$  so that the depletion zone is almost
-entirely on one side of the junction ($x_n >> x_p$) as can be seen in Figure \ref{fig:neffEfield}. 
+entirely on one side of the junction ($x_n >> x_p$) as can be seen in Figure \ref{fig:neffEfield} $a)$. 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{Neff_unirrad.png}
+	\includegraphics[width=0.7\textwidth]{Neff_unirrad.png}
 	\caption{$a)$ Sketch of the constant space charge distribution in a non-irradiated $p-on-n$ diode is presented here. $b)$ The resulting electric field inside the diode is represented, the electric field is proportional to the depth $z$. The diode has a total thickness of $d$ and it is depleted up to a depth $w$. In the Figure the junction is located at $z = 0$}
 	\label{fig:neffEfield}
 \end{figure}
@@ -110,7 +110,7 @@ entirely on one side of the junction ($x_n >> x_p$) as can be seen in Figure \re
 With this configuration the width of the depleted zone ($w$) is $w \approx x_p$.
 When Poisson's equation is solved for $\rho = const$ the resulting electric
 $\nabla \phi = -\overrightarrow {E}$ field is linear with the distance to the $p-n$
-junction. In a typical detector configuration (where $w \approx x_{p/n}$) this
+junction (see Figure \ref{fig:neffEfield} $b)$. In a typical detector configuration (where $w \approx x_{p/n}$) this
 means there is an electric field across the whole active volume of the detector
 (depleted area) in which any carrier created will move by drift. 
 
@@ -122,11 +122,11 @@ If the detector is partially depleted, then part of the detector will not be
 efficient to detect ionisation after a crossing particle. Indeed, the free
 charge carriers produced will recombine in the undepleted bulk. Therefore, the
 full detector needs to be depleted for optimal operation. For this purpose a
-bias voltage ($\vias$) is applied following the same polarity as the built-in
+bias voltage (\vias) is applied following the same polarity as the built-in
 potential $V_0$ and increases the depleting effect of the $p-n$ junction
 therefore increasing the active volume of silicon. 
 
-Solving Poisson equation with \vias as contour condition, the following
+Solving Poisson equation with \vias as boundary condition, the following
 expression is obtained: 
 
 \begin{equation}
@@ -139,8 +139,15 @@ root of the bias voltage and that it is inversely proportional to the doping of 
 bulk. Effectively, the higher the doping, the more difficult it is to deplete the
 device with a fixed voltage. 
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{diode_si.png}
+	\caption{Sketch of a silicon diode. On the left side a side view of the diode is presented and on the right side a top view of the diode is shown.}
+	\label{fig:diodeSi}
+\end{figure}
+
 The silicon pad detector remains one of the most important detector designs,
-particularly in research, due to its simplicity. It is composed of a thin
+particularly in research, due to its simplicity. Its design is presented in Figure \ref{fig:diodeSi} It is composed of a thin
 (typically ~1$\mu$m) layer of very highly doped silicon, called the implant,
 that sits on top of a thicker (typically 300$\mu$m) piece of silicon with a
 lower volume density of dopants, called the bulk. Silicon particle detectors are
