@@ -19,18 +19,25 @@ In this chapter we will present the structural design of the software as it was 
 
 TRACS is built and written in C++11 ISO standard \cite{C++11} and makes use of Fenics \cite{Fenics} and Boost libraries \cite{Boost} for calculations and Qt \cite{Qt} and VTK \cite{VTK} for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
 
-During a typical simulation of TRACS, the program takes detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the previous step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format. This process is shown in Figure \ref{fig:TRACS_fc} as a summarized flow chart; some of the components of TRACS will be explained in detail in the following section.
+During a typical simulation of TRACS, the program takes detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the previous step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format. This process is shown in Figure \ref{fig:TRACS_fc} as a summarised flow chart; some of the components of TRACS will be explained in detail in the following section.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{TRACS_fc.png}
-	\caption{}
+	\caption{Flow chart of the simulation process inside of TRACS. It includes Command Line Interface only parts (dark red) and parts present in CLI and graphical mode as well. It is a simplified view of the simulation process.}
 	\label{fig:TRACS_fc}
 \end{figure}
 
 This behaviour was present in the original version of TRACS an still remains at the core of every simulation performed using the software. Now we will briefly summarise the different parts that compose TRACS from its original state to the latest upgrade.
 
 \subsection{Detector module and Partial Differential Equations solver}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{TRACS_CNVT.png}
+	\caption{Flow chart of the behaviour of the so-called Detector Module. This is a simplified representation of the process by which the detector is initialised and the fields and potentials inside of it are calculated.}
+	\label{fig:TRACSGUI}
+\end{figure}
 
 One of the core modules of TRACS is that composed of the detector class and PDE solver. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are attributes used as boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
 
