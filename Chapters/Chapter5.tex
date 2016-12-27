@@ -34,12 +34,12 @@ This behaviour was present in the original version of TRACS an still remains at 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{TRACS_CNVT.png}
+	\includegraphics[width=0.9\textwidth]{Detector_Module.png}
 	\caption{Flow chart of the behaviour of the so-called Detector Module. This is a simplified representation of the process by which the detector is initialised and the fields and potentials inside of it are calculated.}
-	\label{fig:TRACSGUI}
+	\label{fig:DetectorFc}
 \end{figure}
 
-One of the core modules of TRACS is that composed of the detector class and PDE solver. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are attributes used as boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
+One of the core modules of TRACS is that composed of the detector class and PDE solver which has been called "Detector Module"; its behaviour is depicted in Figure \ref{fig:DetectorFc}. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are attributes used as boundary conditions for Poisson's equation to be solved on them. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
 
 If several simulations are to be performed using the same detector and initial conditions, the fields and potentials need not be calculated since they are saved in memory by TRACS. 
 
@@ -48,11 +48,18 @@ This part of the software is flexible enough to accommodate for any detector geo
 It is in this part of the software that the \neff is calculated through the value of $V_{dep}$ for the non-irradiated case, see equation \ref{eq:widthVias}. Several modifications were done in TRACS to extend its capabilities of simulation to a radiation-modified \neff parametrisation decided by the user. We will explain all the modifications to this part in detail in the next section as we go through the modifications performed to TRACS.
 
 
-\subsection{Drifting}
+\subsection{Carriers Module and drifting}
 
-After the electric and weighting fields and potentials have been calculated, the software proceeds to move the charge carriers inside the detector. This is taken care by the classes: \textit{CarrierCollection}, \textit{Carrier}, \textit{CarrierMobility}, \textit{CarrierTransport}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Carriers_Module.png}
+	\caption{Flow chart of the behaviour of the Carriers Module is presented. This is a simplified view and doesn't show all the classes present in the module as it is intended only to represent the behaviour of the module.}
+	\label{fig:CarrierFc}
+\end{figure}
 
-The charge carriers are input via a ASCII file containig one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier and added together for every time step.
+After the electric and weighting fields and potentials have been calculated, the software proceeds to move the charge carriers inside the detector. This is taken care by the classes: \textit{CarrierCollection}, \textit{Carrier}, \textit{CarrierMobility}, \textit{CarrierTransport}. A flow chart of the behaviour of this module can be seen in Figure \ref{fig:CarrierFc}.
+
+The charge carriers are input via a ASCII file containing one carrier per line with initial position (in the 2-D section of the detector), the off-set time at which they should be generated in the simulation, and the equivalent charge they carry. The carriers can be read and stored for every simulation or moved about the detector if needed. The current is calculated using Ramo's theorem for every carrier and added together for every time step.
 
 The off-set generation time introduced as an input is a quantity whose actual value is of no significance and it is only introduced to reproduce better the waveforms obtained in the lab, specially the first spike that appears as the carriers are created and the signal in the circuit starts to be collected. 
 
