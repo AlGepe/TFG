@@ -19,9 +19,16 @@ In this chapter we will present the structural design of the software as it was 
 
 TRACS is built and written in C++11 ISO standard \cite{C++11} and makes use of Fenics \cite{Fenics} and Boost libraries \cite{Boost} for calculations and Qt \cite{Qt} and VTK \cite{VTK} for GUI, plotting and visualisation. The whole software takes advantage of Object Oriented Programming and it is, thus, organised in different classes following a logic similar to the real process. TRACS also has two different modes available for the user: a command line interface (CLI) and a Graphical User Interface (GUI) both of which will be explained in detail later in this section.
 
-During a typical simulation of TRACS, the program takes detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the previous step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format.
+During a typical simulation of TRACS, the program takes detector properties and carrier position. TRACS then solves Poisson's equation for the given conditions to obtain the electric field. This part is done using the aforementioned Fenics libraries taking advantage of its efficient PDE solver. Then the carriers are drifted inside the detector using the electric field obtained in the previous step and Ramo's theorem to calculate the induced signal in the circuit. Data of the waveform is then saved and stored in both plain text and ROOT format. This process is shown in Figure \ref{fig:TRACS_fc} as a summarized flow chart; some of the components of TRACS will be explained in detail in the following section.
 
-This \textit{modus operandi} was present in the original version of TRACS an still remains at the core of every simulation performed using the software. Now we will briefly summarise the different parts that compose TRACS from its original state to the latest upgrade.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{TRAC_fc.png}
+	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 140V$. Both transients present similar features and can be considered compatible.}
+	\label{fig:140v}
+\end{figure}
+
+This behaviour was present in the original version of TRACS an still remains at the core of every simulation performed using the software. Now we will briefly summarise the different parts that compose TRACS from its original state to the latest upgrade.
 
 \subsection{Detector module and Partial Differential Equations solver}
 
