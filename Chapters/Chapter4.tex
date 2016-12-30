@@ -1,3 +1,5 @@
+\clearpage
+\lhead{\emph{Chapter 4: Characterisation techniques}}  % Set the left side page header to "Symbols"
 \chapter{Characterisation techniques (red and edge TCT)}
 %\chapter{Characterisation techniques (red, edge and TPA TCT)}
 % Optical measurements
@@ -73,18 +75,20 @@ collected charge starts to drop. The decrease in collected charge marks the tran
 
 The setup that will be described is specific for the TCT+ setup in the SSD laboratory at CERN. However, most of the TCT capable setups share most features in common so there should not be any significant difference between TCT+ setups in other laboratories. 
 
-Only the setup for red-TCT measurements will be described for reason that will e apparent in chapter \ref{chap:TRACSvalidity}. Other TCT techniques are performed in similar manner with the main difference being the laser placement and movement.
+Only the setup for red-TCT measurements will be described for reasons that will be apparent in chapter \ref{chap:TRACSvalidity}. Other TCT techniques are performed in similar manner with the main difference being the laser placement and movement.
 
-% Equivalent circuit and SHORT expanation of material used
+% Equivalent circuit and SHORT explanation of material used
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Circuit_rTCT.png}
+	\caption{Interstitial (right) and Vacancy (left) lattice defects are illustrated here. This defects are be created inside silicon detectors after they have been irradiated.}
+	\label{fig:circuit}
+\end{figure}
 
 % Extra considerations (temperature, alignment, isolation(light and electricity)\ldots)
 
-The whole setup is controlled via a custom LabView\cite{labview} program that also allows for remote operation and measurement. The same software takes care of saving and storing the data in the corresponding format on an ASCII file that is later analised. The data analysis procedure is performed using software specially developed in the SSD group for this purpose and that can can calculate and plot numeros physical parameters of interest such as charge collection efficiency, collection time\ldots
+The whole setup is controlled via a custom LabView\cite{labview} program that also allows for remote operation and measurement. The same software takes care of saving and storing the data in the corresponding format on an ASCII file that is later analised. The data analysis procedure is performed using software specially developed in the SSD group for this purpose and that can calculate and plot numerous physical parameters of interest such as charge collection efficiency, collection time\ldots
 
 
-
-
-
-
- 
  % section Experimental setup for (red) TCT measurement (end)
