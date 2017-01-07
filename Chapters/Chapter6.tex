@@ -3,39 +3,45 @@
 \chapter{Validation of TRACS for irradiated silicon detectors}
 \label{chap:TRACSvalidity}
 
-A first way to attest the validity of TRACS results after the implementation of radiation damage is to compare them to other measurements already published and accepted. In \cite{Pholsen} it is shown how a linear parametrisation of the \neff can be used to reproduce measurements of irradiated sensors accurately.
+A first way to attest the validity of TRACS results after the implementation of radiation damage is to compare simulation results to other measurements already published. In \cite{Pholsen} it is shown how a linear parametrisation of the \neff can be used to reproduce measurements of irradiated sensors accurately.
 
-These results will be used as the first test to check TRACS simulations. It is also necessary to conduct a controlled test in which TRACS is compared against data measured in the laboratory. By doing this the author can attest the validity of the measuring and simulation procedures. This task will be the second and last test to validate TRACS results.
+In a second step, TRACS simulation will be compared to our own measurements using the experimental setup described in Chapter \ref{chap:TCT}.
 
-TRACS is able to reproduce any kind of TCT measurement provided the carrier distribution inside the detector. The choice was made to perform red-TCT measurements in the TCT+ setup at CERN-SSD\cite{ssd}. In particular bottom-TCT was chosen after several measurements since it showed clear signs of radiation damage in the form of the DP explained in section \ref{sec:signalDeg}. 
+%These results will be used as the first test to check TRACS simulations. It is also necessary to conduct a controlled test in which TRACS is compared against data measured in the laboratory. By doing this the author can attest the validity of the measuring and simulation procedures. This task will be the second and last test to validate TRACS results.
 
-It is important to note that TRACS needs to be given between 3 and 7 different parameters to perform a correct simulation of an irradiated silicon detector. This complexity calls for automated fitting software that is planned to be developed but is not available at the time of writing this project.
+TRACS is able to reproduce any kind of TCT measurement provided the carrier distribution inside the detector is given. The choice was made to perform red-TCT measurements in the TCT+ setup at CERN-SSD\cite{ssd}. In particular bottom-TCT was chosen after several measurements since it best shows the Dpuble Peak structure explained in section \ref{sec:signalDeg}. 
 
-It is for this reason that comparison with measurements will only be performed with one detector and using only one technique. Parameters will be optimised manually by trial-and-error. The parametrisation obtained will be considered as an effective parameter set that describes the data. The simulation-measurement comparison will only attest TRACS validity but not TRACS accuracy.
+As already explained in the former chapter, TRACS needs between 3 and 7 parameters to model radiation damage (\neff unknowns and trapping). To obtain the best parameters that describe the data we have followed a trial/error approach. Evidently, this is a solution chosen to show the validity of the simulation and can not be considered as a general solution. Indeed, the roadmap of TRACS upgrades is led by an automatic fitting program that would extract the right parameters comparing data with simulated currents.
+%It is important to note that TRACS needs to be given between 3 and 7 different parameters to perform a correct simulation of an irradiated silicon detector. This complexity calls for automated fitting software that is planned to be developed but is not available at the time of writing this project.
 
-The detector used was a diode previously irradiated to $10^{15} neq$. It has a  1cmx1cm surface with 300 $\mu$m width with a structure similar to that explained in section \ref{sec:detConfig}. The diode was also subject to the standard annealing process after irradiation and stored in a fridge to ensure constant low temperatures and prevent radiation effects to evolve over time. 
+%It is for this reason that comparison with measurements will only be performed with one detector and using only one technique. Parameters will be optimised manually by trial-and-error. 
+The parametrisation obtained will be considered as an effective parameter set that describes the data. The simulation-measurement comparison will only attest TRACS validity but not TRACS accuracy.
+
+The detector used was a diode previously irradiated to $10^{15} n_{eq}/cm^{-2}$.It is a 300 $\mu$m thick diode with an active area of 1$\times$1 cm$^{2}$ with a structure similar to that explained in section \ref{sec:detConfig}. %The diode was also subject to the standard annealing process after irradiation and stored in a fridge to ensure constant low temperatures and prevent radiation effects to evolve over time. 
 
 
 \section{Experimental procedure} % (fold)
 \label{sec:ExpProc}
 
-For the  first comparison, the published measurements were digitalised using an on-line tool \cite{digitiser}. Then simulations were performed using TRACS with the same parameters as in the reference. Comparison of both sets of transients will be presented.
+For the  first comparison, the published measurements \cite{Pholsen} were digitalised using an on-line tool \cite{digitiser}. Then simulations were performed using TRACS with the same input parameters as in the reference. Comparison of both sets of transients is presented.
 
-The setup used for the red-TCT measurements was the one described in section \ref{sec:TCTsetup}. Using the bottom-TCT configuration a voltage scan was performed recording the transients generated with bias voltage ranging from 0V to 140V in steps of 10V. The measurements were performed with the detector at fixed temperature T = 170K ||||| \emph{He estado mirando y es la temperatura que sale en los raw data sacados de TCT+ en txt. El nitrogeno te lleva hasta ~77K = -195C}. 
+For the second comparison (to real data) we used a red-TCT configuration of the TCT+ setup described in Section \ref{sec:TCTsetup}. The laser was shot at the backside of the detector and a voltage scan was performed recording the transients generated with bias voltage ranging from 0V to 140V in steps of 10V. The measurements were performed with the detector at fixed temperature T = 170K
+
+%The setup used for the red-TCT measurements was the one described in section \ref{sec:TCTsetup}. Using the bottom-TCT configuration a voltage scan was performed recording the transients generated with bias voltage ranging from 0V to 140V in steps of 10V. The measurements were performed with the detector at fixed temperature T = 170K ||||| \emph{He estado mirando y es la temperatura que sale en los raw data sacados de TCT+ en txt. El nitrogeno te lleva hasta ~77K = -195C}. 
 
 % section Experimental setup (end)
-\section{Results and comparison} % (fold)
-\label{sec:comparison}
+%\section{Results and comparison} % (fold)
+%\label{sec:comparison}
 
-For comparison with TCT+ measurements, data will be presented in two different manners. First a comparison of each set of data (measurements and simulations) will be presented in separated plots. This will illustrate similarities in the trends followed by the transients when \vias is increased. 
+%For comparison with TCT+ measurements, data will be presented in two different manners. First a comparison of each set of data (measurements and simulations) will be presented in separated plots. This will illustrate similarities in the trends followed by the transients when \vias is increased. 
 
-Then, a few sample transients will be selected for direct comparison. Simulation and measurements will be plotted together with different plots for each of the selected voltages. This will allow to compare the specific features of the transients and establish the level of agreement between simulations and measurements. 
+%Then, a few sample transients will be selected for direct comparison. Simulation and measurements will be plotted together with different plots for each of the selected voltages. This will allow to compare the specific features of the transients and establish the level of agreement between simulations and measurements. 
 
-The data will be normalised to the maximum value of the histograms. In this way the direct comparison will be easier and the intensities of the laser will be factored out of it. Comparison with published data will also be presented in the same manner.
+The data will be normalised to the maximum value of the histograms. In this way the direct comparison will be easier and the intensities of the laser will be factored out.% of it. Comparison with published data will also be presented in the same manner.
 
-\subsection{Comparison between TRACS and already existing simulations}
+\section{Comparison between TRACS and already existing simulations}
 
-To compare TRACS to published data, measurements from \cite{Pholsen} will be used. In this doctoral thesis, the \neff is parametrised as a linear function of depth; the same parametrisation was used to perform the simulations. Since the raw data is not published, it was needed to digitise the plots published in the reference.
+To compare TRACS to published data, measurements from \cite{Pholsen} will be used. In \cite{Pholsen}, \neff is parametrised as a linear function of depth; the same parametrisation was used here. Since the raw data is not published, it was needed to digitise the plots published in the reference.
 %
 %\begin{figure}[H]
 	%\centering
@@ -44,26 +50,28 @@ To compare TRACS to published data, measurements from \cite{Pholsen} will be use
 	%\caption{Electric field inside the diode as a function of depth. Simulations from \cite{Pholsen} and TRACS are plotted together for comparison. Agreement between both simulations is good as expected.}
 %\end{figure}
 
-The transients from the reference are compared with TRACS simulations in Figure \ref{fig:PholsenTransient}.  The reader should note that the trapping simulation is different between both simulators, with TRACS having a constant $\tau$ while the reference uses a field-dependant $\tau$. Results are therefore expected to not be the same but compatible.
+The transients from the reference are compared with TRACS simulations in Figure \ref{fig:PholsenTransient}.  Trapping simulation is different between both simulators, with TRACS having a constant $\tau$ while the reference uses a field-dependant $\tau$.% Results are therefore expected to not be the same but compatible.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Pohlsen_scr.png}
-	\caption{Transient currents generated by top-TCT measurements (continuous line) and simulations(histogram). TRACS uses a different trapping parametrisation yielding slightly different results while maintaining the general features of the measurements from \cite{Pholsen}}
+	\caption{Transient currents generated by top-TCT measurements (continuous line) and simulations(histogram). TRACS uses a different trapping parametrisation yielding different results while maintaining the general features of the measurements from \cite{Pholsen}}
 	\label{fig:PholsenTransient}
 \end{figure}
 
 
-\subsection{Comparison between simulations and laboratory measurements}
+\subsection{Comparison between simulations and measurements}
 
 %Deberia haber comentado en la parte de TRACS sobre que TRACS no simula difusion?
 
-In order to reproduce the transients obtained using the TCT+ setup the trial-and-error method was performed manually. The results presented in this section are considered to be a good representation of the measured detector but not a perfect match. The chosen \neff parametrisation was the Trilinear form. A plot with the 8 defining values for the chosen \neff are presented in Figure \ref{fig:TRACSparam} together with a plot of the \neff distribution as a function of depth. Trapping constant was chosen to be: $\tau = 4 ns$
+In order to reproduce the transients obtained using the TCT+ setup a trial/error method was performed manually. The chosen \neff parametrisation was the Trilinear form. A plot with the 8 defining values for the chosen \neff is presented in Figure \ref{fig:TRACSparam}. Trapping constant was chosen to be: $\tau = 4 ns$ 
+
+Esta explicado en la primera linea del parrafo que no me invento los valores sino que uso prueba y error para reproducit los transitorios medidos.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Neff.png}
-	\caption{Representation of the \neff parametrisation used for TRACS simulations is presented. The Trilinear parametrisation was used and the values of the defining parameters are shown over said point in the plot.}
+	\caption{Representation of the \neff parametrisation used for TRACS simulations. The Trilinear parametrisation was used and the values of the defining parameters are shown.}
 	\label{fig:TRACSparam}
 \end{figure}
 
@@ -76,7 +84,7 @@ The data measured by the author is presented now. In the following plot all the 
 	\label{fig:allTCT+}
 \end{figure}
 				
-TRACS simulations are presented in Figure \ref{fig:allSims} in the same way as the measurements. Comparison of the transient response to higher voltages can be done with these plots. It can be seen that TRACS simulations follow a similar trend of shorter transients and higher second peaks with increasing voltages.
+TRACS simulations are presented in Figure \ref{fig:allSims} in the same way as the measurements. It can be seen that TRACS simulations follow a similar trend of shorter transients and higher second peaks with increasing voltages.
 
 \begin{figure}[H]
 	\centering
@@ -86,16 +94,17 @@ TRACS simulations are presented in Figure \ref{fig:allSims} in the same way as t
 	\label{fig:allSims}
 \end{figure}
 
-No transients below $80V \approx V_{dep}$ were simulated because TRACS does not simulate diffusion inside the detector. This, together with the fact that illumination is done in the non depleted area for $V < 80V$, means that any simulation done in TRACS for voltages under $80V$ will have no physical meaning.
+No transients below $80V \approx V_{dep}$ were simulated because TRACS does not simulate underdepleted detectors. For voltages bellow 80 V, the depleted region does not reach the backside of the detector, and the carriers created by the red laser are therefore not able to reach the drift region. The only chance for them to make it would be via diffusion, but TRACS currently does not simulate carrier diffusion. That is the reason why the simulation starts at 80 V.
+%diffusion inside the detector. This, together with the fact that illumination is done in the non depleted area for $V < 80V$, means that any simulation done in TRACS for voltages under $80V$ will have no physical meaning.
 
-Figures \ref{fig:allSims} and \ref{fig:allTCT+} allow to see how TRACS reproduces the trends of the transients with different voltages but direct comparison of the transients can be difficult. In the following plots a direct comparison of selected transients will be presented for a more comprehensive look at the transient features and how TRACS is able to simulate measurements.
+%Figures \ref{fig:allSims} and \ref{fig:allTCT+} allow to see how TRACS reproduces the trends of the transients with different voltages but direct comparison of the transients can be difficult. In the following plots a direct comparison of selected transients will be presented for a more comprehensive look at the transient features and how TRACS is able to simulate measurements.
 
-From the previous voltage scans, three transients have been selected. The three voltages selected are 80V (Figure \ref{fig:80v}), 100V (Figure \ref{fig:100v}) and 140V (Figure \ref{fig:140v}). 
+From the previous voltage scans, three transients were selected,namely: 80V (Figure \ref{fig:80v}), 100V (Figure \ref{fig:100v}) and 140V (Figure \ref{fig:140v}). 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{80V.png}
-	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 80V$. Both transients present similar features and can be considered compatible.}
+	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 80V$.}
 	\label{fig:80v} 
 \end{figure}
 
@@ -103,7 +112,7 @@ From the previous voltage scans, three transients have been selected. The three 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{100V.png}
-	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 100V$. Both transients present similar features and can be considered compatible.}
+	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 100V$.}
 	\label{fig:100v}
 \end{figure}
 
@@ -112,10 +121,12 @@ From the previous voltage scans, three transients have been selected. The three 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{140V.png}
-	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 140V$. Both transients present similar features and can be considered compatible.}
+	\caption{Comparison of the measured transients (blue line) and the simulations from TRACS (red line) for a bias voltage $V = 140V$.}
 	\label{fig:140v}
 \end{figure}
 
-Looking at the three comparison figures it can be seen that TRACS simulations show similar features and behaviour as the measurements. The fact that the simulations do not match perfectly the measurements can be attributed to the shapping algorithm (the transfer function of the amplifier used in the measurements was not available for the simulations) and also to the only approximate fitting of the parameters, as we have discussed before. Better agreement between simulations and measurements can be expected if this problems are addressed.
+Comparison of waveforms from Figs \ref{fig80v}-\ref{fig:140v} shows that TRACS simulations exhibit similar features and behaviour as the measurements. The fact that the simulations do not match perfectly the measurements can be attributed to the absence of diffusion in the simulation, the unknown space charge profile parameters (and real shape), the usage of a constant trapping time and the approximate electronics shaping used in the simulation.
+%the shapping algorithm (the transfer function of the amplifier used in the measurements was not available for the simulations) and also to the only approximate fitting of the parameters, as we have discussed before. Better agreement between simulations and measurements can be expected if this problems are addressed.
 % section future_projection (end)
 
+\section{Conclusion}
