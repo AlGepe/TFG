@@ -35,19 +35,18 @@ Talk with MARCOS %This behaviour was present in the original version of TRACS an
 \subsection{Detector module and Partial Differential Equations solver}
 
 \begin{figure}[H]
-	\centering
 	\includegraphics[width=0.9\textwidth]{Detector_Module.png}
 	\caption{Flow chart of the behaviour of the so-called Detector Module. This is a simplified representation of the process by which the detector is initialised and the fields and potentials inside are calculated.}
 	\label{fig:DetectorFc}
 \end{figure}
 
-One of the core modules of TRACS is that composed of the detector class and PDE solver which has been called "Detector Module"; its behaviour is depicted in Figure \ref{fig:DetectorFc}. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In these classes the properties of the detector are attributes used as boundary conditions to solve Poisson's equation. The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files.
+One of the core modules of TRACS is that composed of the detector class and PDE solver which has been called "Detector Module"; its behaviour is depicted in Figure \ref{fig:DetectorFc}. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In the first, detector properties (geometry, electric field inside...) are stored as attributes that allows the class to mimic a real detector. The class \textit{SMSSubDomains} serves as a bridge between the \textit{SMSDetector} class and Fenics solver; geometry and boundary conditions are stored inside of it in such a way that Fenics solver is capable of understand and solve the PDE. 
 
-HABLAR DE SMSSUBDOMAINS Y BOUNDARY CONDITIONS
+The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files. The electric and weighting potentials and fields obtained after solving the PDE are stored in the class \textit{SMSDetector} as attributes of Fenic's internal type \textit{Function} and are accessible through public \textit{getter} methods.
 
 If several simulations are to be performed using the same detector and initial conditions, the fields and potentials need not be calculated since they are saved in memory by TRACS. 
 
-This part of the software is flexible enough to accommodate for any detector geometry with few changes in the code, thanks to the use of Fenics. Diodes and micro-strips are simulated out-of-the-box. In particular, diodes are considered a special case of micro-strips with just one strip covering the entire surface of the dectector.
+This part of the software is flexible enough to accommodate for any detector geometry with few changes in the code, thanks to the use of Fenics. Diodes and micro-strips are simulated out-of-the-box. In particular, diodes are considered a special case of micro-strips with just one strip covering the entire surface of the detector.
 
 It is in this part of the software that \neff is calculated through the value of $V_{dep}$ for the non-irradiated case, see equation \ref{eq:widthVias}. Several modifications were done in TRACS to extend its capabilities of simulation to a radiation-modified \neff parametrisation decided by the user. We will explain the modifications in the next section as we go through the modifications performed to TRACS.
 
@@ -55,7 +54,6 @@ It is in this part of the software that \neff is calculated through the value of
 \subsection{Carriers Module and drifting}
 
 \begin{figure}[H]
-	\centering
 	\includegraphics[width=0.9\textwidth]{Carriers_Module.png}
 	\caption{Flow chart of the behaviour of the Carriers Module is presented. This is a simplified view and doesn't show all the classes present in the module as it is intended only to represent the behaviour of the module.}
 	\label{fig:CarrierFc}
@@ -72,7 +70,7 @@ A time offset in the input file is used to shift the start position of the wavef
 % maybe use equations here?
 An important feature of the TRACS carriers simulation is the grouping and splitting of carriers by assignment of a weighted charge. This means that groups of charge carriers  of the same type, lying initially very close together, can be simulated as being just one charge carrier with a total charge equal to the sum of all the individual charges of the carriers. This reduces greatly the number of individual charge carriers that need to be simulated hence improving simulation times. This grouping can be done with almost no penalty in precision of the results as carrier-carrier interactions are neglected.
 
-Simulating the movement of carriers inside the detector requires to solve a first order equation\[EQUATION\]. That is taken care by Runge-Kutta-4 method implemented inside ODEINT libraries. ODEINT libraries now come as a standard part of BOOST libraries inside C++11. These libraries, together with Fenics, ensure fast, efficient and robust computational properties at the core algorithms.
+Simulating the movement of carriers inside the detector requires to solve a first order equation\cite{PdeCastro}\[\frac{d\vec{x}(t)}{dt} = \vec{v}(t) = \mu \vec{E}(\vec{x}(t))\]That is taken care by Runge-Kutta-4 method implemented inside ODEINT libraries. ODEINT libraries now come as a standard part of BOOST libraries inside C++11. These libraries, together with Fenics, ensure fast, efficient and robust computational properties at the core algorithms.
 
 
 
