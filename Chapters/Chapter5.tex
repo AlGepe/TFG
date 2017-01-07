@@ -26,7 +26,7 @@ During a typical simulation of TRACS, the program takes detector properties (thi
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{TRACS_fc.png}
-	\caption{Flow chart of the most general voltage and coordinate scan implemented in TRACS. It includes Command Line Interface only parts (dark red) and parts present in CLI and graphical mode as well. It is a simplified view of the simulation process.}
+	\caption{Flow chart of the most general voltage and coordinate scan implemented in TRACS. It includes Command Line Interface only parts (dark red) and parts present in CLI and graphical mode as well. It is a simplified view of the simulation process. Rounded shapes represent processes and rectangles represent the intermediate results.}
 	\label{fig:TRACS_fc}
 \end{figure}
 
@@ -107,7 +107,7 @@ Another approximation made by TRACS is neglecting any electron-electron (or hole
 
 The thermal diffusion of charge carriers inside the detector is also neglected in TRACS. The thermal diffusion is mostly important in the undepleted bulk. In the depleted zone it adds a smearing of few microns to the final position of the carriers. A consequence of this simplification is that TRACS is only accurate when simulating fully depleted detectors. 
 
-\sectiond{TRACS upgrade} % (fold)
+\section{TRACS upgrade} % (fold)
 \label{sec:devTRACS}
 
 All the modules and features we have explained in the previous section were part of the original TRACS software. From that point the software was modified and upgraded to \emph{1)} include radiation damage effects  with user defined parameters and \emph{2)} improve the usage of TRACS both as a standalone and as a library-like module for bigger projects.
