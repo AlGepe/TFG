@@ -40,9 +40,9 @@ Talk with MARCOS %This behaviour was present in the original version of TRACS an
 	\label{fig:DetectorFc}
 \end{figure}
 
-One of the core modules of TRACS is that composed of the detector class and PDE solver which has been called "Detector Module"; its behaviour is depicted in Figure \ref{fig:DetectorFc}. The main classes of the module are the \textit{SMSDetector} class and the \textit{SMSDSubDomains}. In the first, detector properties (geometry, electric field inside...) are stored as attributes that allows the class to mimic a real detector. The class \textit{SMSSubDomains} serves as a bridge between the \textit{SMSDetector} class and Fenics solver; geometry and boundary conditions are stored inside of it in such a way that Fenics solver is capable of understand and solve the PDE. 
+One of the core modules of TRACS is that composed of the detector class and PDE solver which has been called "Detector Module"; its behaviour is depicted in Figure \ref{fig:DetectorFc}. The main classes of the module are \textit{SMSDetector} and \textit{SMSDSubDomains}. In the first, detector properties (geometry, electric field inside...) are stored as attributes that allow the class to represent a detector. The class \textit{SMSSubDomains} serves as a bridge between the \textit{SMSDetector} class and Fenics solver; geometry and boundary conditions are stored inside of it in such a way that Fenics solver is capable of understanding and solving the PDE. 
 
-The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files. The electric and weighting potentials and fields obtained after solving the PDE are stored in the class \textit{SMSDetector} as attributes of Fenic's internal type \textit{Function} and are accessible through public \textit{getter} methods.
+The PDE solving algorithm is fully provided by Fenics libraries and the configuration done through \textit{Poisson.h} and \textit{Gradient.h} files. The electric and weighting potentials and fields obtained after solving Poissonś equation are stored in the class \textit{SMSDetector} as attributes of Fenic's internal type \textit{Function} and are accessible through public \textit{getter} methods.
 
 If several simulations are to be performed using the same detector and initial conditions, the fields and potentials need not be calculated since they are saved in memory by TRACS. 
 
@@ -70,7 +70,7 @@ A time offset in the input file is used to shift the start position of the wavef
 % maybe use equations here?
 An important feature of the TRACS carriers simulation is the grouping and splitting of carriers by assignment of a weighted charge. This means that groups of charge carriers  of the same type, lying initially very close together, can be simulated as being just one charge carrier with a total charge equal to the sum of all the individual charges of the carriers. This reduces greatly the number of individual charge carriers that need to be simulated hence improving simulation times. This grouping can be done with almost no penalty in precision of the results as carrier-carrier interactions are neglected.
 
-Simulating the movement of carriers inside the detector requires to solve a first order equation\cite{PdeCastro}\[\frac{d\vec{x}(t)}{dt} = \vec{v}(t) = \mu \vec{E}(\vec{x}(t))\]That is taken care by Runge-Kutta-4 method implemented inside ODEINT libraries. ODEINT libraries now come as a standard part of BOOST libraries inside C++11. These libraries, together with Fenics, ensure fast, efficient and robust computational properties at the core algorithms.
+Simulating the movement of carriers inside the detector requires to solve the first order differential equation\cite{PdeCastro}\[\frac{d\vec{x}(t)}{dt} = \vec{v}(t) = \mu \vec{E}(\vec{x}(t))\]That is taken care by Runge-Kutta-4 method implemented inside ODEINT libraries. ODEINT libraries now come as a standard part of BOOST libraries inside C++11. These libraries, together with Fenics, ensure fast, efficient and robust computational properties at the core algorithms.
 
 
 
@@ -145,7 +145,7 @@ The last of the upgrades to TRACS was the inclusion of electronics shaping. TRAC
 
 Another important change to the CLI was the addition of a configuration file was added to the code, together with the necessary \textit{parser}, eliminating the need for recompilation every time an input value is changed, and making it possible for users to change simulation parameters in CLI without the need to dig into the code. The code (existing and new) was also commented and documented.
 
-TRACS execution options were expanded with the inclusion of a new class (TRACSInterface) that allows the simulation to be called as a a library from an external user code.
+TRACS execution options were expanded with the inclusion of the new class \emph{TRACSInterface} that allows the simulation to be called as a a library from an external user code.
 
 %The last addition to TRACS is the ability to be used and integrated into bigger software (e.g.: ROOT) as a library package. This was achieved by the development of \textit{TRACSInterface}, a class that acts as the bridge between any software and TRACS.
 
