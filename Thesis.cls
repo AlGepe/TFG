@@ -150,11 +150,11 @@
 \degree      {}
 \authors     {}
 \university  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
-                {University Name}}
-                {University Name}}
+                {Universiad de Cantabria}}
+                {Universiad de Cantabria}}
 \UNIVERSITY  {\texorpdfstring{\href{University Web Site URL Here (include http://)}
-                {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
-                {UNIVERSITY NAME (IN BLOCK CAPITALS)}}
+                {UNIVERSIDAD DE CANTABRIA}}
+                {UNIVERSIDAD DE CANTABRIA}}
 \department  {\texorpdfstring{\href{Department or School Web Site URL Here (include http://)}
                 {Department or School Name}}
                 {Department or School Name}}
@@ -168,11 +168,11 @@
                 {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
                 {RESEARCH GROUP NAME (IN BLOCK CAPITALS)}}
 \faculty     {\texorpdfstring{\href{Faculty Web Site URL Here (include http://)}
-                {Faculty Name}}
-                {Faculty Name}}
+                {Facultad de Ciencias}}
+                {Facultad de Cienciase}}
 \FACULTY     {\texorpdfstring{\href{Faculty Web Site URL Here (include http://)}
-                {FACULTY NAME (IN BLOCK CAPITALS)}}
-                {FACULTY NAME (IN BLOCK CAPITALS)}}
+                {FACULTAD DE CIENCIAS}}
+                {FACULTAD DE CIENCIAS}}
 \addresses   {}
 \subject     {}
 \keywords    {}

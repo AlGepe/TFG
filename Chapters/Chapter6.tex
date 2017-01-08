@@ -39,7 +39,7 @@ For the second comparison (to real data) we used a red-TCT configuration of the 
 
 The data will be normalised to the maximum value of the histograms. In this way the direct comparison will be easier and the intensities of the laser will be factored out.% of it. Comparison with published data will also be presented in the same manner.
 
-\section{Comparison between TRACS and already existing simulations}
+\section{Comparison between TRACS and published data}
 
 To compare TRACS to published data, measurements from \cite{Pholsen} will be used. In \cite{Pholsen}, \neff is parametrised as a linear function of depth; the same parametrisation was used here. Since the raw data is not published, it was needed to digitise the plots published in the reference.
 %
@@ -125,8 +125,12 @@ From the previous voltage scans, three transients were selected,namely: 80V (Fig
 	\label{fig:140v}
 \end{figure}
 
-Comparison of waveforms from Figs \ref{fig:80v}-\ref{fig:140v} shows that TRACS simulations exhibit similar features and behaviour as the measurements. The fact that the simulations do not match perfectly the measurements can be attributed to the absence of diffusion in the simulation, the unknown space charge profile parameters (and real shape), the usage of a constant trapping time and the approximate electronics shaping used in the simulation.
+Comparison of waveforms from Figs \ref{fig:80v}-\ref{fig:140v} shows that TRACS simulations exhibit similar features and behaviour as the measurements. Transients tend to be higher than measurements for higher \vias and lower than in the measurements for lower \vias; a field-dependant $\tau$ could solve this discrepancy. The best agreement is found for high field and, thus, high current situations ($t < 5ns$) where diffusion has a smaller impact on the total current.
+
+The fact that the simulations do not match perfectly the measurements can be attributed to the absence of diffusion in the simulation, the unknown space charge profile parameters (and real shape), the usage of a constant trapping time and the approximate electronics shaping used in the simulation.
 %the shapping algorithm (the transfer function of the amplifier used in the measurements was not available for the simulations) and also to the only approximate fitting of the parameters, as we have discussed before. Better agreement between simulations and measurements can be expected if this problems are addressed.
 % section future_projection (end)
 
 \section{Conclusion}
+
+Simulation data from TRACS has been compared to published measurements as well as compared to measurements performed by the author. In both cases TRACS transients exhibit similar features to those present in the measurements. Taking into account that an error of about 10\% in TRACS transients can be attributed to approximations and that the method available for optimising the simulation parameters (trial/error method) is not optimal, it can be said that simulations and measurements from TCT+ setup are compatible since they differ about 10\% or less. It is therefore shown that TRACS can reproduce TCT measurements on irradiated silicon detectors.
